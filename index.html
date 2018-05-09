@@ -4,48 +4,52 @@
   <meta charset='utf-8'>
   <meta content='IE=edge' http-equiv='X-UA-Compatible'>
   <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  <title> Crea tu protocolo </title>
 </head>
 <body>
   <!-- Contact Form - sent to a Google Sheet -->
   <div class="col-md-6 col-md-offset-2">
-    <form>
+    <h1> Crea el protocolo de tu empresa </h1>
+    <form id="foo">
       <div class="form-group">
-      <label for="example-text-input">Nombre de la empresa</label>
-          <input class="form-control" type="text" value="Artisanal kale" id="name">
+      <label for="example-text-input">Nombre de la empresa*</label>
+          <input class="form-control" placeholder="Enter the company name" type="text" value="" name="nombre_empresa" id="nombre_empresa" required>
       </div>
       <div class="form-group">
-      <label for="example-text-input">CIF</label>
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+      <label for="example-text-input">CIF*</label>
+          <input class="form-control" placeholder="Enter CIF" type="text" value="" name="cif" id="cif" required>
       </div>
       <div class="form-group">
-        <label for="exampleTextarea">Domicilio postal completa</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        <label for="exampleTextarea">Domicilio postal completo*</label>
+        <textarea class="form-control" name="domicilio" id="domicilio" rows="3" required></textarea>
+      </div>
+      <h4> Persona de contacto: </h4>
+      <div class="form-group">
+      <label for="example-text-input">Nombre completo*</label>
+          <input class="form-control" placeholder="Enter name" type="text" name="nombre" value="" id="nombre" required>
       </div>
       <div class="form-group">
-      <label for="example-text-input">Nombre completo</label>
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Correo electrónico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <label for="exampleInputEmail1">Correo electrónico*</label>
+        <input type="email" class="form-control" name="mail" id="mail" aria-describedby="emailHelp" placeholder="Enter email" required>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
       <label for="example-text-input">Puesto que ocupa en la empresa</label>
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-      </div>      
+          <input class="form-control" placeholder="Enter your job" type="text" name="puesto" value="" id="puesto">
+      </div>
       <div class="form-group">
         <label for="exampleSelect1">Sexo</label>
-        <select class="form-control" data-live-search="true" id="exampleSelect1">
+        <select class="form-control" data-live-search="true" name="sexo" id="sexo">
+          <option value="">-- Seleccionar --</option>
           <option data-tokens="hombre">Hombre</option>
           <option data-tokens="mujer">Mujer</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleSelect1">Actividad</label>
-        <select class="selectpicker" id="exampleSelect1" data-show-subtext="true" data-live-search="true">
+        <label for="exampleSelect1">Actividad</label><br>
+        <select class="selectpicker" name="actividad" id="actividad" data-show-subtext="true" data-live-search="true">
           <option data-tokens="A">A - Agricultura, ganadería, silvicultura y pesca</option>
           <option data-tokens="01">01 - Agricultura, ganadería, caza y servicios relacionados con las mismas</option>
           <option data-tokens="011">011 - Cultivos no perennes</option>
@@ -1060,10 +1064,10 @@
       </div>
       <div class="form-group">
       <p>
-          <label for="dependent-dropdown">Fórmula Jurídica</label>
-        <select id="master-dropdown" class="form-control">
+          <label for="master-dropdown">Fórmula Jurídica*</label>
+        <select name="formula" id="formula" class="form-control" required>
           <option value="">-- Seleccionar --</option>
-          <option value="persona">Persona autónoma</option>
+          <option value="autonomo">Persona autónoma</option>
           <option value="cooperativa">Cooperativa</option>
           <option value="otro">Otro</option>
         </select>
@@ -1071,81 +1075,91 @@
       </div>
       <div class="form-group">
       <p>
-      <label for="">Nº de personas trabajadoras</label>
-      <select id="dependent-dropdown" class="form-control">
+      <label for="dependent-dropdown">Nº de personas trabajadoras*</label>
+      <select name="trabajadores" id="trabajadores" class="form-control" required>
           <option value="">-- Seleccionar --</option>
-          <option value="Alabama">+250</option>
-          <option value="Saskatchewan">-250</option>
+          <option value="+250">+250 personas</option>
+          <option value="-250">-250 personas</option>
+        </select>
+      </p>
+      </div>
+      <div class="form-group">
+      <p>
+      <label for="dependent-dropdown">Tiene Representación Sindical*</label>
+      <select name="representacion" id="representacion" class="form-control" required>
+          <option value="">-- Seleccionar --</option>
+          <option value="si">Si</option>
+          <option value="no">No</option>
         </select>
       </p>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
- 
-      <div class="form-group">
-        <label for="exampleSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleSelect2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-      </div>
-      <fieldset class="form-group">
-        <legend>Radio buttons</legend>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-            Option one is this and that&mdash;be sure to include why it's great
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else and selecting it will deselect option one
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-            Option three is disabled
-          </label>
-        </div>
-      </fieldset>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input">
-          Check me out
+        <label>
+          <input type="checkbox" name="responsable" id="responsable" value="si"> Desea ser "Empresa Responsable en la prevención del acoso sexual y por razón de sexo en el trabajo"
         </label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  <a href="javascript:demoTwoPageDocument()" class="button">Descargar PDF</a>
-  </div>   
 
+      <!--recaptcha-->
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+
+      <div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>
+      <br>
+      <button type="submit" id="button" class="btn btn-primary">Genera el protocolo</button>
+
+    </form>
+    <a href="javascript:demoTwoPageDocument()" onclick="pdf()" class="button">Descargar PDF</a>
+  </div>
 
   </div>
+
+  <!--<script type="text/javascript">
+      function recaptcha_callback(){
+        $('#button').prop("enabled", true);
+      }
+  </script>-->
+
+  <script>
+  function pdf() {
+    var formula = $('#formula').val();
+    var trabajadores = $('#trabajadores').val();
+    var representacion = $('#representacion').val();
+    if (trabajadores=="+250") {
+      function demoTwoPageDocument() {
+        var doc = new jsPDF();
+        var nombre_formulario = $('#nombre_empresa').val();
+        doc.text(20, 20, 'Hola ' + nombre_formulario);
+        doc.addPage();
+        doc.text(20, 20, 'Do you like that?');
+
+        // Save the PDF
+        doc.save('1.pdf');
+      }
+    }
+    else if (trabajadores=="-250")&&(representacion=="si") {
+      doc.save('1.pdf');
+    }
+    else if (trabajadores=="-250")&&(representacion=="no") {
+      doc.save('2.pdf');
+    }
+    else if (formula=="cooperativa") {
+      doc.save('3.pdf');
+    }
+    else if (formula=="autonomo") {
+      doc.save('4.pdf');
+    }
+  }
+  </script>
 
   <!-- Custom Theme JavaScript -->
   <script>
   function demoTwoPageDocument() {
     var doc = new jsPDF();
-    var nombre_formulario = $('#name').val();
+    var nombre_formulario = $('#nombre_empresa').val();
     doc.text(20, 20, 'Hola ' + nombre_formulario);
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
     doc.addPage();
     doc.text(20, 20, 'Do you like that?');
-    
+
     // Save the PDF
     doc.save('Test.pdf');
   }
@@ -1159,7 +1173,8 @@
   <script src="include/js/jquery.dependent.fields.js"></script>
   <script>
       $(document).ready(function(){
-$('#dependent-dropdown').dependsOn('#master-dropdown', ['persona', 'otro']);
-  });
+        $('#trabajadores').dependsOn('#formula', ['autonomo', 'cooperativa', 'otro']);
+        $('#representacion').dependsOn('#trabajadores', ['-250']);
+      });
   </script>
   </html>
