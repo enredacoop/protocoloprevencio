@@ -13,7 +13,7 @@
     <form>
       <div class="form-group">
       <label for="example-text-input">Nombre de la empresa</label>
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+          <input class="form-control" type="text" value="Artisanal kale" id="name">
       </div>
       <div class="form-group">
       <label for="example-text-input">CIF</label>
@@ -1130,12 +1130,28 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div>    
+  <a href="javascript:demoTwoPageDocument()" class="button">Descargar PDF</a>
+  </div>   
+
+
   </div>
 
   <!-- Custom Theme JavaScript -->
+  <script>
+  function demoTwoPageDocument() {
+    var doc = new jsPDF();
+    var nombre_formulario = $('#name').val();
+    doc.text(20, 20, 'Hola ' + nombre_formulario);
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    doc.addPage();
+    doc.text(20, 20, 'Do you like that?');
+    
+    // Save the PDF
+    doc.save('Test.pdf');
+  }
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src='google-sheet.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
