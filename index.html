@@ -7,6 +7,19 @@
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
   <title> Crea tu protocolo </title>
+  <style>
+    @CHARSET "UTF-8";
+    .page-break {
+      page-break-after: always;
+      page-break-inside: avoid;
+      clear:both;
+    }
+    .page-break-before {
+      page-break-before: always;
+      page-break-inside: avoid;
+      clear:both;
+    }
+  </style>
 </head>
 <body>
   <!-- Contact Form - sent to a Google Sheet -->
@@ -36,8 +49,8 @@
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-      <label for="example-text-input">Puesto que ocupa en la empresa</label>
-          <input class="form-control" placeholder="Enter your job" type="text" name="puesto" value="" id="puesto">
+      <label for="example-text-input">Puesto que ocupa en la empresa*</label>
+          <input class="form-control" placeholder="Enter your job" type="text" name="puesto" value="" id="puesto" required>
       </div>
       <div class="form-group">
         <label for="exampleSelect1">Sexo</label>
@@ -1100,70 +1113,307 @@
         </label>
       </div>
 
-      <!--recaptcha-->
-      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <!--recaptcha
+      <script src='https://www.google.com/recaptcha/api.js'></script>-->
 
-      <div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>
+      <!--recaptcha<div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
       <br>
+      <p style="font-size='4px;'"><b>AVISO</b>: Al generar el protocolo acepta la Política de privacidad del
+    Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
+    El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
+    por la empresa con firma y sello, pasando ésta a ser considerada empresa
+    responsable en prevención del acoso sexual y por razón de sexo en el ámbito laboral. </p>
       <button type="submit" id="button" class="btn btn-primary">Genera el protocolo</button>
-
     </form>
-    <a href="javascript:demoTwoPageDocument()" onclick="pdf()" class="button">Descargar PDF</a>
-  </div>
+    <a href="javascript:generate()" class="button">Generar PDF</a>
+
+  <div id="html-2-pdfwrapper" style="font-size: 20px; text-align: justify; text-justify: inter-word;">
+  		<p>
+        Protocolo para la prevención del acoso sexual y del acoso por razón de sexo en el trabajo y el establecimiento
+        de un procedimiento especial para los casos que puedan producirse en <span id="nombre_empresa"></span>.
+  		</p>
+  		<p>
+        D./D.a <span id="nombre"></span>, en representación de <span id="nombre_empresa"></span>,
+        con CIF <span id="span"></span>, sita en <span id="domicilio"></span> como <span id="puesto"></span> de la misma.
+      </p>
+      <p>
+        DECLARA:
+      </p>
+      <p>
+        La entrada en vigor desde hoy, (día) de (mes) de (año), del «Protocolo para
+  la prevención del acoso sexual y del acoso por razón de sexo» en el trabajo y
+  el establecimiento de un procedimiento especial para el tratamiento de los
+  casos que puedan producirse en esta sociedad cooperativa andaluza, con las
+  cláusulas que se anexan al presente documento.
+  		</p>
+      <p>
+        Firmado:
+      </p>
+      <p>
+        <span id="nombre"></span><br>
+        <span id="puesto"></span>
+      </p>
+
+      <h4 style='page-break-before: always; margin-top:100px;'><b>Cláusulas:</b></h4>
+      <p><b>Fuente normativa y objetivo del protocolo.</b></p>
+      <p>El presente protocolo sigue lo establecido en la RESOLUCIÓN de 31 de enero de
+  2012, del Instituto Andaluz de la Mujer, por la que se aprueba el modelo de
+  protocolo para la prevención del acoso sexual y del acoso por razón de sexo en
+  el trabajo y el establecimiento de un procedimiento especial para los casos que
+  puedan producirse en la empresa cooperativa.</p>
+      <p>Su objetivo es establecer compromisos en orden a la información, prevención,
+  mediación y supresión de conductas en materia de acoso en el trabajo, así
+  como el establecimiento de un procedimiento interno, rápido, eficaz y rodeado
+  de las garantías de confidencialidad que la materia exige, con el fin de
+  solucionar situaciones de acoso que se puedan dar en el ámbito de la
+  cooperativa.</p>
+      <p><b>Cláusula primera. Ámbito de aplicación.</b></p>
+      <p>El presente protocolo será de aplicación a todas las personas socias
+  trabajadoras que conforman la sociedad cooperativa.</p>
+      <p>Se incluirán también las personas trabajadoras contratadas por cuenta ajena o
+  por terceras personas y que presten sus servicios en los centros de trabajo de
+  la cooperativa. Asimismo, será de aplicación a las personas en régimen de
+  autónomas que compartan espacios de trabajo y circunscriban el presente
+  protocolo.</p>
+      <p>La prohibición del acoso sexual y por razón de sexo abarca los
+  comportamientos en el lugar de trabajo o en funciones sociales ligadas al
+  trabajo, durante los viajes o misiones emprendidas en relación con el trabajo o durante la labor realizada sobre el terreno en relación con proyectos en los
+  que participe el personal de la cooperativa.</p>
+
+      <p>
+        Tanto el departamento / la persona responsable de Recursos Humanos de la
+  cooperativa como la persona elegida como figura de mediación (será una figura
+  de mediación creada y ratificada por la Asamblea General como representante
+  de las personas que trabajan en la cooperativa) deberán proporcionar
+  información y asesoramiento a cuantas personas socias trabajadoras,
+  empleadas y autónomas, lo requieran sobre el tema objeto de este protocolo,
+  así como de las posibles maneras de resolver las reclamaciones en materia de
+  acoso sexual y de acoso por razón de sexo.
+      </p>
+
+      <p style='page-break-before: always; margin-top:100px;'>
+        <b>Cláusula segunda. Declaración de principios.</b>
+      </p>
+      <p>
+        La persona designada por el órgano de administración y la persona elegida
+  como figura mediadora se comprometen a crear, mantener y proteger con
+  todos los medios a su alcance, un entorno laboral donde se respete la dignidad
+  y libertad sexual del conjunto de personas que trabajan en el ámbito de la
+  cooperativa.
+      </p>
+      <p>
+        Como primera concreción de esta iniciativa, la cooperativa ha considerado
+        oportuno regular expresamente la problemática del acoso sexual y del acoso
+        por razón de sexo en las relaciones laborales y así dar una nueva dimensión a
+        la vinculación existente entre derechos fundamentales y contrato de trabajo,
+        dado que este comportamiento puede afectar a
+        derechos tan sustanciales como el de no discriminación &#45;art. 14 de la Constitución Española&#45; o el de intimidad &#45;art. 18.1 de la misma&#45;,
+        ambos en clara conexión con el respeto a la dignidad y
+        la integridad de la persona (art. 4.2.c) d) y e), del Real Decreto Legislativo
+        1/1994, de 24 de marzo, por el que se aprueba el Texto Refundido de la Ley
+        del Estatuto de los Trabajadores (sic); además de la Ley Orgánica 3/2007, de
+        22 de marzo para la igualdad efectiva de mujeres y hombres;
+        y las leyes autonómicas 12/2007, de 26 de noviembre, para la promoción de la
+        igualdad de género en Andalucía y 13/2007, de 26 de noviembre, de Medidas
+        de prevención y protección integral contra la violencia de género.
+      </p>
+      <p>
+        El acoso sexual y el acoso por razón de sexo en el mundo laboral son
+  discriminaciones que se manifiestan precisamente a través de la sexualidad;
+  principalmente, de discriminación laboral por razón de sexo, incluyendo tanto a
+  los hombres como a mujeres como eventuales sujetos pasivos, aunque siendo
+  estas últimas las que lo padecen de forma mayoritaria; merced a un entorno
+  social de desequilibrio de poder que tiende a silenciar los supuestos de acoso
+  sexual, cuando no a culpabilizar a la conducta de la víctima como provocadora
+  del acoso.
+      </p>
+      <p>
+        El acoso sexual y el acoso por razón de sexo constituyen actos de coacción que
+  ignoran la voluntad de quien es víctima, niegan el respeto a la integridad física
+  y psíquica, convierten la condición u orientación sexual en objeto de hostilidad y
+  permiten que se perpetúen como factor valorativo de las capacidades;
+  asimismo presentan un serio obstáculo para el acceso, formación y promoción
+  igualitarios de mujeres y hombres en el empleo.
+      </p>
+      <p>
+        La cooperativa, y por tanto todo el personal que la compone, tiene la
+  responsabilidad de ayudar a garantizar un entorno laboral en el que resulte
+  inaceptable e indeseable el acoso sexual y el acoso por razón de sexo, y en
+  concreto, el personal directivo tiene la obligación de garantizar con los medios a
+  su alcance que no se produzcan en las unidades organizativas que estén bajo
+  su responsabilidad.
+      </p>
+      <p style='page-break-before: always; margin-top:100px;'>
+        El Texto Refundido de la Ley de Infracciones y Sanciones de Orden Social,
+  aprobado por Real Decreto Legislativo 5/2000, de 4 de agosto, en su art. 8.13
+  bis determina como infracción muy grave «El acoso de origen racial o étnico,
+  religión o convicciones, discapacidad, edad y orientación sexual y el acoso por
+  razón de sexo, cuando se produzcan dentro del ámbito a que alcanzan las
+  facultades de dirección empresarial, cualquiera que sea el sujeto activo del
+  mismo siempre que, conocido por el empresario, este no hubiera adoptado las
+  medidas necesarias para impedirlo». Por tanto, queda expresamente prohibida
+  cualquier acción o conducta de esa naturaleza siendo considerada como falta
+  laboral dando lugar a las sanciones que establece la normativa al respecto. En
+  caso de producirse, debe quedar garantizada la ayuda a la persona que lo sufra
+  y evitar con todos los medios posibles que la situación se repita.
+      </p>
+      <p>
+  La persona designada por el órgano de administración llevará a cabo una
+  política activa para prevenir y eliminar las conductas que supongan acoso
+  sexual y por razón de sexo, así como todas aquellas manifestaciones que
+  supongan una discriminación por razón de sexo y atenten contra los derechos
+  fundamentales.
+      </p>
+      <p>
+  En consecuencia, la Dirección de la cooperativa y la figura mediadora se
+  comprometen a regular, por medio del presente protocolo, la problemática del
+  acoso sexual y el acoso por razón de sexo en las relaciones laborales,
+  estableciendo un método que se aplique a la prevención y rápida solución de
+  las reclamaciones relativas al acoso sexual, con las debidas garantías y
+  tomando en consideración las normas constitucionales, laborales y las
+  declaraciones relativas a los principios y derechos fundamentales en el trabajo.
+      </p>
+      <p>
+  El acoso sexual y el acoso por razón de sexo afectan negativamente al trabajo:
+  el cuadro sintomático que producen hace que las personas que lo sufren sean
+  menos eficaces en el trabajo, abandonen en muchos casos su puesto, y no se
+  atrevan a denunciar por miedo a represalias o incomprensión, con menor
+  rendimiento y menos motivación. Repercute negativamente, además, en el
+  ambiente de trabajo, pues los compañeros y compañeras también sufren las
+  consecuencias de un ambiente laboral enrarecido.
+      </p>
+      <p>
+        <b>Cláusula tercera. Conceptos de acoso sexual y acoso por razón
+  de sexo.</b>
+      </p>
+      <p>
+        Los conceptos de acoso sexual y acoso por razón de sexo están recogidos en la
+  Directiva Comunitaria 2006/54/CE de julio de 2006. Estas situaciones se pueden
+  producir tanto dentro como fuera del lugar de trabajo, durante la selección
+  previa a la relación contractual, o dentro de la misma. La persona acosadora
+  suele ser una persona superior en la jerarquía, pero también puede ocupar una
+  posición de igual o inferior rango jerárquico.
+      </p>
+
+      <p style='page-break-before: always; margin-top:100px;'>
+        La Ley Orgánica 3/2007, de 22 de marzo para la Igualdad efectiva de mujeres y
+  hombres define en su artículo 7, el acoso sexual y acoso por razón de sexo:
+      </p>
+      <p>
+        «Artículo 7. Acoso sexual y acoso por razón de sexo.<br>
+  1. Sin perjuicio de lo establecido en el Código Penal, a los efectos de esta Ley
+  constituye acoso sexual cualquier comportamiento, verbal o físico, de
+  naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra
+  la dignidad de una persona, en particular cuando se crea un entorno
+  intimidatorio, degradante u ofensivo.<br>
+  2. Constituye acoso por razón de sexo cualquier comportamiento realizado en
+  función del sexo de una persona, con el propósito o el efecto de atentar contra
+  su dignidad y de crear un entorno intimidatorio, degradante u ofensivo.<br>
+  3. Se considerarán en todo caso discriminatorio el acoso sexual y el acoso por
+  razón de sexo.<br>
+  4. El condicionamiento de un derecho o de una expectativa de derecho a la
+  aceptación de una situación constitutiva de acoso sexual o de acoso por razón
+  de sexo se considerará también acto de discriminación por razón de sexo.»
+      </p>
+
+
 
   </div>
 
-  <!--<script type="text/javascript">
-      function recaptcha_callback(){
-        $('#button').prop("enabled", true);
-      }
-  </script>-->
+  <script src='dist/jspdf.min.js'></script>
 
   <script>
-  function pdf() {
-    var formula = $('#formula').val();
-    var trabajadores = $('#trabajadores').val();
-    var representacion = $('#representacion').val();
-    if (trabajadores=="+250") {
-      function demoTwoPageDocument() {
-        var doc = new jsPDF();
-        var nombre_formulario = $('#nombre_empresa').val();
-        doc.text(20, 20, 'Hola ' + nombre_formulario);
-        doc.addPage();
-        doc.text(20, 20, 'Do you like that?');
+  var base64Img = null;
+  imgToBase64('octocat.jpg', function(base64) {
+      base64Img = base64;
+  });
 
-        // Save the PDF
-        doc.save('1.pdf');
+  margins = {
+    top: 70,
+    bottom: 40,
+    left: 30,
+    width: 550
+  };
+
+  generate = function()
+  {
+  	var pdf = new jsPDF('p', 'pt', 'a4');
+  	pdf.setFontSize(23);
+  	pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
+  		margins.left, // x coord
+  		margins.top,
+  		{
+  			// y coord
+  			width: margins.width// max width of content on PDF
+  		},function(dispose) {
+  			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
+  		},
+  		margins);
+
+  	var iframe = document.createElement('iframe');
+  	iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
+  	document.body.appendChild(iframe);
+
+  	iframe.src = pdf.output('datauristring');
+  };
+  function headerFooterFormatting(doc, totalPages)
+  {
+      for(var i = totalPages; i >= 1; i--)
+      {
+          doc.setPage(i);
+          //header
+          header(doc);
+
+          footer(doc, i, totalPages);
+          doc.page++;
       }
-    }
-    else if (trabajadores=="-250")&&(representacion=="si") {
-      doc.save('1.pdf');
-    }
-    else if (trabajadores=="-250")&&(representacion=="no") {
-      doc.save('2.pdf');
-    }
-    else if (formula=="cooperativa") {
-      doc.save('3.pdf');
-    }
-    else if (formula=="autonomo") {
-      doc.save('4.pdf');
-    }
-  }
-  </script>
+  };
 
-  <!-- Custom Theme JavaScript -->
-  <script>
-  function demoTwoPageDocument() {
-    var doc = new jsPDF();
-    var nombre_formulario = $('#nombre_empresa').val();
-    doc.text(20, 20, 'Hola ' + nombre_formulario);
-    doc.addPage();
-    doc.text(20, 20, 'Do you like that?');
+  function header(doc)
+  {
+      doc.setFontSize(30);
+      doc.setTextColor(40);
+      doc.setFontStyle('normal');
 
-    // Save the PDF
-    doc.save('Test.pdf');
-  }
-  </script>
+      if (base64Img) {
+      }
+
+  };
+
+  // You could either use a function similar to this or pre convert an image with for example http://dopiaza.org/tools/datauri
+  // http://stackoverflow.com/questions/6150289/how-to-convert-image-into-base64-string-using-javascript
+  function imgToBase64(url, callback, imgVariable) {
+
+      if (!window.FileReader) {
+          callback(null);
+          return;
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function() {
+          var reader = new FileReader();
+          reader.onloadend = function() {
+  			imgVariable = reader.result.replace('text/xml', 'image/jpeg');
+              callback(imgVariable);
+          };
+          reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', url);
+      xhr.send();
+  };
+
+  function footer(doc, pageNumber, totalPages){
+
+      var str = pageNumber + " / " + totalPages
+
+      doc.setFontSize(10);
+      doc.text(str, margins.left, doc.internal.pageSize.height - 20);
+
+  };
+
+   </script>
+ </div>
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -1177,4 +1427,5 @@
         $('#representacion').dependsOn('#trabajadores', ['-250']);
       });
   </script>
+
   </html>
