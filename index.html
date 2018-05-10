@@ -1127,7 +1127,7 @@
     </form>
     <a href="javascript:generate()" class="button">Generar PDF</a>
 
-  <div id="html-2-pdfwrapper" style="font-size: 20px; text-align: justify; text-justify: inter-word;">
+  <div id="html-2-pdfwrapper" style="font-size: 16px; color: black; text-align: justify; text-justify: inter-word; display: none">
   		<p>
         Protocolo para la prevención del acoso sexual y del acoso por razón de sexo en el trabajo y el establecimiento
         de un procedimiento especial para los casos que puedan producirse en <span id="nombre_empresa"></span>.
@@ -1301,17 +1301,17 @@
       </p>
       <p>
         «Artículo 7. Acoso sexual y acoso por razón de sexo.<br>
-  1. Sin perjuicio de lo establecido en el Código Penal, a los efectos de esta Ley
+1. Sin perjuicio de lo establecido en el Código Penal, a los efectos de esta Ley
   constituye acoso sexual cualquier comportamiento, verbal o físico, de
   naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra
   la dignidad de una persona, en particular cuando se crea un entorno
   intimidatorio, degradante u ofensivo.<br>
-  2. Constituye acoso por razón de sexo cualquier comportamiento realizado en
+2. Constituye acoso por razón de sexo cualquier comportamiento realizado en
   función del sexo de una persona, con el propósito o el efecto de atentar contra
   su dignidad y de crear un entorno intimidatorio, degradante u ofensivo.<br>
-  3. Se considerarán en todo caso discriminatorio el acoso sexual y el acoso por
+3. Se considerarán en todo caso discriminatorio el acoso sexual y el acoso por
   razón de sexo.<br>
-  4. El condicionamiento de un derecho o de una expectativa de derecho a la
+4. El condicionamiento de un derecho o de una expectativa de derecho a la
   aceptación de una situación constitutiva de acoso sexual o de acoso por razón
   de sexo se considerará también acto de discriminación por razón de sexo.»
       </p>
@@ -1331,14 +1331,14 @@
   margins = {
     top: 70,
     bottom: 40,
-    left: 30,
+    left: 20,
     width: 550
   };
 
   generate = function()
   {
   	var pdf = new jsPDF('p', 'pt', 'a4');
-  	pdf.setFontSize(23);
+  	pdf.setFontSize(14);
   	pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
   		margins.left, // x coord
   		margins.top,
@@ -1350,11 +1350,12 @@
   		},
   		margins);
 
-  	var iframe = document.createElement('iframe');
-  	iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
-  	document.body.appendChild(iframe);
+  	//var iframe = document.createElement('iframe');
+  	//iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
+  	//document.body.appendChild(iframe);
 
-  	iframe.src = pdf.output('datauristring');
+  	//iframe.src =
+    pdf.save('protocolo.pdf');
   };
   function headerFooterFormatting(doc, totalPages)
   {
@@ -1371,7 +1372,7 @@
 
   function header(doc)
   {
-      doc.setFontSize(30);
+      doc.setFontSize(20);
       doc.setTextColor(40);
       doc.setFontStyle('normal');
 
