@@ -1126,11 +1126,13 @@
     </form>
     <a href="javascript:generate()" class="button" style="font-size: 16px;">Descargar PDF</a>
 
+    <div id="html-2-pdfwrapper" style="font-size: 14px; text-align: justify; text-justify: inter-word; display: none">
+
   <script src='dist/jspdf.min.js'></script>
 
   <script>
   var base64Img = null;
-  imgToBase64('images/logo_iam.jpg', function(base64) {
+  imgToBase64('images/logo_iam.png', function(base64) {
       base64Img = base64;
   });
 
@@ -1141,24 +1143,24 @@
     width: 550
   };
 
-  generate = function()
+  /* generate = function()
   {
 
-/*    $('#nombre_empresa1').text($('#nombre_empresa').val());
+    $('#nombre_empresa1').text($('#nombre_empresa').val());
     $('#nombre1').text($('#nombre').val());
     $('#cif1').text($('#cif').val());
     $('#puesto1').text($('#puesto').val());
     $('#domicilio1').text($('#domicilio').val());
     $('#nombre_empresa1').text($('#nombre_empresa').val());
     $('#fecha1').text(fecha.getDate() + " de " + meses[fecha.getMonth()] + " de " + fecha.getFullYear());
-*/  	var pdf = new jsPDF('p', 'pt', 'a4');
+  	var pdf = new jsPDF('p', 'pt', 'a4');
   	pdf.setFontSize(14);
     // Obtener el codigo html de p1
-    var my_var = '';
-    var htmlp1 = $.get("pdf/p1.html", function( my_var ) {
+    /*var my_var = '';
+    var htmlp1 = $.get("pdf/cooperativa.html", function( my_var ) {
       console.log('Contenido cargado')
-    var  htmltext = my_var;
-}, 'html');
+    var htmltext = my_var;
+    }, 'html');
     console.log(my_var);
   	pdf.fromHTML(htmlp1.responseText,
   		margins.left, // x coord
@@ -1170,7 +1172,21 @@
   			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
   		},
   		margins);
-
+*/
+generate = function()
+ {
+  	var pdf = new jsPDF('p', 'pt', 'a4');
+  	pdf.setFontSize(23);
+  	pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
+  		margins.left, // x coord
+  		margins.top,
+  		{
+  			// y coord
+  			width: margins.width// max width of content on PDF
+  		},function(dispose) {
+  			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
+  		},
+  		margins);
   	//var iframe = document.createElement('iframe');
   	//iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
   	//document.body.appendChild(iframe);
@@ -1198,10 +1214,10 @@
       doc.setFontStyle('normal');
 
       if (base64Img) {
-         doc.addImage(base64Img, 'JPEG', margins.left, 10, 40,40);
+         doc.addImage(base64Img, 'JPEG', margins.left, 12, 270, 50);
       }
 
-      doc.text("Report Header Template", margins.left + 50, 40 );
+      doc.text("", margins.left + 50, 40 );
 
   };
 
