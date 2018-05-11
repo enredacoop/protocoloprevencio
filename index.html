@@ -27,7 +27,7 @@
     <h1> Crea el protocolo de tu empresa </h1>
     <form id="foo">
       <div class="form-group">
-      <label for="example-text-input">Nombre de la empresa*</label>
+      <label for="example-text-input">Nombre de la empresa <span style="color: red;">*</span></label>
           <input class="form-control" placeholder="Enter the company name" type="text" value="" name="nombre_empresa" id="nombre_empresa" required>
       </div>
       <div class="form-group">
@@ -35,21 +35,21 @@
           <input class="form-control" placeholder="Enter CIF" type="text" value="" name="cif" id="cif" required>
       </div>
       <div class="form-group">
-        <label for="exampleTextarea">Domicilio postal completo*</label>
+        <label for="exampleTextarea">Domicilio postal completo <span style="color: red;">*</span></label>
         <textarea class="form-control" name="domicilio" id="domicilio" rows="3" required></textarea>
       </div>
       <h4> Persona de contacto: </h4>
       <div class="form-group">
-      <label for="example-text-input">Nombre completo*</label>
+      <label for="example-text-input">Nombre completo <span style="color: red;">*</span></label>
           <input class="form-control" placeholder="Enter name" type="text" name="nombre" value="" id="nombre" required>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Correo electrónico*</label>
+        <label for="exampleInputEmail1">Correo electrónico <span style="color: red;">*</span></label>
         <input type="email" class="form-control" name="mail" id="mail" aria-describedby="emailHelp" placeholder="Enter email" required>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-      <label for="example-text-input">Puesto que ocupa en la empresa*</label>
+      <label for="example-text-input">Puesto que ocupa en la empresa <span style="color: red;">*</span></label>
           <input class="form-control" placeholder="Enter your job" type="text" name="puesto" value="" id="puesto" required>
       </div>
       <div class="form-group">
@@ -1077,7 +1077,7 @@
       </div>
       <div class="form-group">
       <p>
-          <label for="master-dropdown">Fórmula Jurídica*</label>
+          <label for="master-dropdown">Fórmula Jurídica <span style="color: red;">*</span></label>
         <select name="formula" id="formula" class="form-control" required>
           <option value="">-- Seleccionar --</option>
           <option value="autonomo">Persona autónoma</option>
@@ -1088,7 +1088,7 @@
       </div>
       <div class="form-group">
       <p>
-      <label for="dependent-dropdown">Nº de personas trabajadoras*</label>
+      <label for="dependent-dropdown">Nº de personas trabajadoras <span style="color: red;">*</span></label>
       <select name="trabajadores" id="trabajadores" class="form-control" required>
           <option value="">-- Seleccionar --</option>
           <option value="+250">+250 personas</option>
@@ -1098,7 +1098,7 @@
       </div>
       <div class="form-group">
       <p>
-      <label for="dependent-dropdown">Tiene Representación Sindical*</label>
+      <label for="dependent-dropdown">Tiene Representación Sindical <span style="color: red;">*</span></label>
       <select name="representacion" id="representacion" class="form-control" required>
           <option value="">-- Seleccionar --</option>
           <option value="si">Si</option>
@@ -1117,8 +1117,7 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>-->
 
       <!--recaptcha<div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
-      <br>
-      <p style="font-size='4px;'"><b>AVISO</b>: Al generar el protocolo acepta la Política de privacidad del
+      <p style="font-size: 14px;"><b>AVISO</b>: Al generar el protocolo acepta la Política de privacidad del
     Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
     El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
     por la empresa con firma y sello, pasando ésta a ser considerada empresa
@@ -1127,472 +1126,11 @@
     </form>
     <a href="javascript:generate()" class="button" style="font-size: 16px;">Descargar PDF</a>
 
-  <div id="html-2-pdfwrapper" style="font-size: 16px; color: black; text-align: justify; justify: inter-word; display: none">
-  		<p style="margin-bottom: 30px;">
-        Protocolo para la prevención del acoso sexual y del acoso por razón de sexo en el trabajo y el establecimiento
-        de un procedimiento especial para los casos que puedan producirse en <span id="nombre_empresa1"></span>.
-  		</p>
-  		<p style="margin-bottom: 30px;">
-        D./D.a <span id="nombre1"></span>, en representación de <span id="nombre_empresa1"></span>,
-        con CIF <span id="cif1"></span>, sita en <span id="domicilio1"></span> como <span id="puesto1"></span> de la misma.
-      </p>
-      <p style="margin-bottom: 30px;">
-        DECLARA:
-      </p>
-      <p style="margin-bottom: 30px;">
-        La entrada en vigor desde hoy, <span id="#fecha1"></span>, del «Protocolo para
-  la prevención del acoso sexual y del acoso por razón de sexo» en el trabajo y
-  el establecimiento de un procedimiento especial para el tratamiento de los
-  casos que puedan producirse en esta sociedad cooperativa andaluza, con las
-  cláusulas que se anexan al presente documento.
-  		</p>
-      <p>
-        Firmado:
-      </p>
-      <p>
-        <span id="nombre1"></span><br>
-        <span id="puesto1"></span>
-      </p>
-
-      <h4 style='page-break-before: always; margin-top:100px;'><b>Cláusulas:</b></h4>
-      <p><b>Fuente normativa y objetivo del protocolo.</b></p>
-      <p>El presente protocolo sigue lo establecido en la RESOLUCIÓN de 31 de enero de
-  2012, del Instituto Andaluz de la Mujer, por la que se aprueba el modelo de
-  protocolo para la prevención del acoso sexual y del acoso por razón de sexo en
-  el trabajo y el establecimiento de un procedimiento especial para los casos que
-  puedan producirse en la empresa cooperativa.</p>
-      <p>Su objetivo es establecer compromisos en orden a la información, prevención,
-  mediación y supresión de conductas en materia de acoso en el trabajo, así
-  como el establecimiento de un procedimiento interno, rápido, eficaz y rodeado
-  de las garantías de confidencialidad que la materia exige, con el fin de
-  solucionar situaciones de acoso que se puedan dar en el ámbito de la
-  cooperativa.</p>
-      <p><b>Cláusula primera. Ámbito de aplicación.</b></p>
-      <p>El presente protocolo será de aplicación a todas las personas socias
-  trabajadoras que conforman la sociedad cooperativa.</p>
-      <p>Se incluirán también las personas trabajadoras contratadas por cuenta ajena o
-  por terceras personas y que presten sus servicios en los centros de trabajo de
-  la cooperativa. Asimismo, será de aplicación a las personas en régimen de
-  autónomas que compartan espacios de trabajo y circunscriban el presente
-  protocolo.</p>
-      <p>La prohibición del acoso sexual y por razón de sexo abarca los
-  comportamientos en el lugar de trabajo o en funciones sociales ligadas al
-  trabajo, durante los viajes o misiones emprendidas en relación con el trabajo o durante la labor realizada sobre el terreno en relación con proyectos en los
-  que participe el personal de la cooperativa.</p>
-
-      <p>
-        Tanto el departamento / la persona responsable de Recursos Humanos de la
-  cooperativa como la persona elegida como figura de mediación (será una figura
-  de mediación creada y ratificada por la Asamblea General como representante
-  de las personas que trabajan en la cooperativa) deberán proporcionar
-  información y asesoramiento a cuantas personas socias trabajadoras,
-  empleadas y autónomas, lo requieran sobre el tema objeto de este protocolo,
-  así como de las posibles maneras de resolver las reclamaciones en materia de
-  acoso sexual y de acoso por razón de sexo.
-      </p>
-
-      <p style='page-break-before: always; margin-top:100px;'>
-        <b>Cláusula segunda. Declaración de principios.</b>
-      </p>
-      <p>
-        La persona designada por el órgano de administración y la persona elegida
-  como figura mediadora se comprometen a crear, mantener y proteger con
-  todos los medios a su alcance, un entorno laboral donde se respete la dignidad
-  y libertad sexual del conjunto de personas que trabajan en el ámbito de la
-  cooperativa.
-      </p>
-      <p>
-        Como primera concreción de esta iniciativa, la cooperativa ha considerado
-        oportuno regular expresamente la problemática del acoso sexual y del acoso
-        por razón de sexo en las relaciones laborales y así dar una nueva dimensión a
-        la vinculación existente entre derechos fundamentales y contrato de trabajo,
-        dado que este comportamiento puede afectar a
-        derechos tan sustanciales como el de no discriminación &#45;art. 14 de la Constitución Española&#45; o el de intimidad &#45;art. 18.1 de la misma&#45;,
-        ambos en clara conexión con el respeto a la dignidad y
-        la integridad de la persona (art. 4.2.c) d) y e), del Real Decreto Legislativo
-        1/1994, de 24 de marzo, por el que se aprueba el Texto Refundido de la Ley
-        del Estatuto de los Trabajadores (sic); además de la Ley Orgánica 3/2007, de
-        22 de marzo para la igualdad efectiva de mujeres y hombres;
-        y las leyes autonómicas 12/2007, de 26 de noviembre, para la promoción de la
-        igualdad de género en Andalucía y 13/2007, de 26 de noviembre, de Medidas
-        de prevención y protección integral contra la violencia de género.
-      </p>
-      <p>
-        El acoso sexual y el acoso por razón de sexo en el mundo laboral son
-  discriminaciones que se manifiestan precisamente a través de la sexualidad;
-  principalmente, de discriminación laboral por razón de sexo, incluyendo tanto a
-  los hombres como a mujeres como eventuales sujetos pasivos, aunque siendo
-  estas últimas las que lo padecen de forma mayoritaria; merced a un entorno
-  social de desequilibrio de poder que tiende a silenciar los supuestos de acoso
-  sexual, cuando no a culpabilizar a la conducta de la víctima como provocadora
-  del acoso.
-      </p>
-      <p>
-        El acoso sexual y el acoso por razón de sexo constituyen actos de coacción que
-  ignoran la voluntad de quien es víctima, niegan el respeto a la integridad física
-  y psíquica, convierten la condición u orientación sexual en objeto de hostilidad y
-  permiten que se perpetúen como factor valorativo de las capacidades;
-  asimismo presentan un serio obstáculo para el acceso, formación y promoción
-  igualitarios de mujeres y hombres en el empleo.
-      </p>
-      <p>
-        La cooperativa, y por tanto todo el personal que la compone, tiene la
-  responsabilidad de ayudar a garantizar un entorno laboral en el que resulte
-  inaceptable e indeseable el acoso sexual y el acoso por razón de sexo, y en
-  concreto, el personal directivo tiene la obligación de garantizar con los medios a
-  su alcance que no se produzcan en las unidades organizativas que estén bajo
-  su responsabilidad.
-      </p>
-      <p style='page-break-before: always; margin-top:100px;'>
-        El Texto Refundido de la Ley de Infracciones y Sanciones de Orden Social,
-  aprobado por Real Decreto Legislativo 5/2000, de 4 de agosto, en su art. 8.13
-  bis determina como infracción muy grave «El acoso de origen racial o étnico,
-  religión o convicciones, discapacidad, edad y orientación sexual y el acoso por
-  razón de sexo, cuando se produzcan dentro del ámbito a que alcanzan las
-  facultades de dirección empresarial, cualquiera que sea el sujeto activo del
-  mismo siempre que, conocido por el empresario, este no hubiera adoptado las
-  medidas necesarias para impedirlo». Por tanto, queda expresamente prohibida
-  cualquier acción o conducta de esa naturaleza siendo considerada como falta
-  laboral dando lugar a las sanciones que establece la normativa al respecto. En
-  caso de producirse, debe quedar garantizada la ayuda a la persona que lo sufra
-  y evitar con todos los medios posibles que la situación se repita.
-      </p>
-      <p>
-  La persona designada por el órgano de administración llevará a cabo una
-  política activa para prevenir y eliminar las conductas que supongan acoso
-  sexual y por razón de sexo, así como todas aquellas manifestaciones que
-  supongan una discriminación por razón de sexo y atenten contra los derechos
-  fundamentales.
-      </p>
-      <p>
-  En consecuencia, la Dirección de la cooperativa y la figura mediadora se
-  comprometen a regular, por medio del presente protocolo, la problemática del
-  acoso sexual y el acoso por razón de sexo en las relaciones laborales,
-  estableciendo un método que se aplique a la prevención y rápida solución de
-  las reclamaciones relativas al acoso sexual, con las debidas garantías y
-  tomando en consideración las normas constitucionales, laborales y las
-  declaraciones relativas a los principios y derechos fundamentales en el trabajo.
-      </p>
-      <p>
-  El acoso sexual y el acoso por razón de sexo afectan negativamente al trabajo:
-  el cuadro sintomático que producen hace que las personas que lo sufren sean
-  menos eficaces en el trabajo, abandonen en muchos casos su puesto, y no se
-  atrevan a denunciar por miedo a represalias o incomprensión, con menor
-  rendimiento y menos motivación. Repercute negativamente, además, en el
-  ambiente de trabajo, pues los compañeros y compañeras también sufren las
-  consecuencias de un ambiente laboral enrarecido.
-      </p>
-      <p>
-        <b>Cláusula tercera. Conceptos de acoso sexual y acoso por razón
-  de sexo.</b>
-      </p>
-      <p>
-        Los conceptos de acoso sexual y acoso por razón de sexo están recogidos en la
-  Directiva Comunitaria 2006/54/CE de julio de 2006. Estas situaciones se pueden
-  producir tanto dentro como fuera del lugar de trabajo, durante la selección
-  previa a la relación contractual, o dentro de la misma. La persona acosadora
-  suele ser una persona superior en la jerarquía, pero también puede ocupar una
-  posición de igual o inferior rango jerárquico.
-      </p>
-
-      <p style='page-break-before: always; margin-top:100px;'>
-        La Ley Orgánica 3/2007, de 22 de marzo para la Igualdad efectiva de mujeres y
-  hombres define en su artículo 7, el acoso sexual y acoso por razón de sexo:
-      </p>
-      <p>
-        &#171;Artículo 7. Acoso sexual y acoso por razón de sexo.<br> Sin perjuicio de lo establecido en el Código Penal, a los efectos de esta Ley constituye acoso sexual cualquier comportamiento, verbal o físico, de
-Sin perjuicio de lo establecido en el Código Penal, a los efectos de esta Ley
-  constituye acoso sexual cualquier comportamiento, verbal o físico, de
-  naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra
-  la dignidad de una persona, en particular cuando se crea un entorno
-  intimidatorio, degradante u ofensivo.<br>
-Constituye acoso por razón de sexo cualquier comportamiento realizado en
-  función del sexo de una persona, con el propósito o el efecto de atentar contra
-  su dignidad y de crear un entorno intimidatorio, degradante u ofensivo.<br>
-Se considerarán en todo caso discriminatorio el acoso sexual y el acoso por
-  razón de sexo.<br>
-El condicionamiento de un derecho o de una expectativa de derecho a la
-  aceptación de una situación constitutiva de acoso sexual o de acoso por razón
-  de sexo se considerará también acto de discriminación por razón de sexo.&#187;
-      </p>
-      <p>
-        &#171;Artículo 9. Indemnidad frente a represalias.
-También se considerará discriminación por razón de sexo cualquier trato
-adverso o efecto negativo que se produzca en una persona como consecuencia
-de la presentación por su parte de queja, reclamación, denuncia, demanda o
-recurso, de cualquier tipo, destinados a impedir su discriminación y a exigir el
-cumplimiento efectivo del principio de igualdad de trato entre mujeres y
-hombres.&#187;
-      </p>
-      <p>
-          El artículo 30 de la Ley 12/2007, de 26 de noviembre, para la promoción de la
-    igualdad de género en Andalucía recoge:
-    &#171;Artículo 30. Acoso sexual y acoso por razón de sexo.
-    <ol>
-      <li>Las Administraciones Públicas de Andalucía adoptarán las medidas
-    necesarias, en su ámbito competencial, para que exista un entorno laboral libre
-    de acoso sexual y de acoso por razón de sexo. En este sentido, tendrán la
-    consideración de conductas que afectan a la salud laboral, y su tratamiento y
-    prevención deberán abordarse desde esta perspectiva, sin perjuicio de la
-    responsabilidad penal, laboral y civil que se derive.<br/>
-    Igualmente, y con esta finalidad, se establecerán medidas que deberán
-    negociarse con las personas representantes del personal, tales como la
-    elaboración y difusión de códigos de buenas prácticas, la realización de
-    campañas informativas o acciones de formación.</li>
-    <li> En todo caso, se considerarán discriminatorios el acoso sexual y el acoso por
-    razón de sexo, y, a tal efecto, las Administraciones Públicas arbitrarán los
-    protocolos de actuación con las medidas de prevención y protección necesarias
-    frente a las consecuencias derivadas de estas situaciones, garantizando la
-    prontitud y confidencialidad en la tramitación de las denuncias y el impulso de
-    las medidas cautelares.</li>
-    <li style='page-break-before: always; margin-top:100px;'>
-    Los protocolos de actuación contemplarán las indicaciones a seguir ante
-    situaciones de acoso sexual y acoso por razón de sexo.</li>
-    <li>La Consejería competente en materia de igualdad impulsará la elaboración
-    de dichos protocolos y realizará el seguimiento y evaluación de los mismos.</li>
-    <li>Las Administraciones Públicas Andaluzas, en el ámbito de sus competencias,
-    garantizarán el asesoramiento jurídico y psicológico especializado a las víctimas
-    de acoso sexual y acoso relacionado con el sexo y el apoyo en ambos
-    supuestos&#187;.</li>
-  </ol>
-    </p>
-    <p>
-    Se considerarán constitutivas de acoso sexual y acoso por razón de sexo las
-citadas conductas realizadas por cualquier persona relacionada con la víctima
-por causa del trabajo, o las realizadas prevaliéndose de una situación de
-superioridad, pudiendo ser estas de carácter ambiental o de intercambio.
-    </p>
-    <p>
-      A título de ejemplo, y sin ánimo excluyente ni limitativo, se relacionan las
-siguientes conductas:
-    </p>
-    <p>
-&#45; Observaciones sugerentes, bromas, o comentarios sobre la apariencia o
-condición sexual del trabajador o la trabajadora.
-&#45; El uso de gráficos, viñetas, dibujos, fotografías o imágenes de Internet de
-contenido sexualmente explícito.
-&#45; Llamadas telefónicas, cartas o mensajes de correo electrónico de carácter
-ofensivo, de contenido sexual.
-&#45; El contacto físico deliberado y no solicitado, o un acercamiento físico
-excesivo o innecesario.
-&#45; Invitaciones persistentes para participar en actividades sociales lúdicas, pese
-a que la persona objeto de las mismas haya dejado claro que resultan no
-deseadas e inoportunas.
-&#45; Invitaciones impúdicas o comprometedoras y peticiones de favores sexuales,
-cuando las mismas asocien la aprobación o denegación de estos favores,
-por medio de actitudes, insinuaciones o directamente, a una mejora de las
-condiciones de trabajo, a la estabilidad en el empleo o a la carrera
-profesional.
-&#45; Cualquier otro comportamiento que tenga como causa o como objetivo la
-discriminación, el abuso, la vejación o la humillación del trabajador/a por
-razón de su condición sexual.
-  </p>
-  <p style='page-break-before: always; margin-top:100px;'>
-    El acoso sexual se distingue de las aproximaciones libremente aceptadas y
-recíprocas, en la medida en que no son deseadas por la persona que es objeto
-de ellas. Un único episodio no deseado puede ser constitutivo de acoso sexual.
-  </p>
-  <p>
-    <b>Cláusula cuarta. Sujeto pasivo y sujeto activo.</b>
-  </p>
-  <p>
-    a) Sujeto activo: se considerará sujeto activo de acoso, jefes/as,
-compañeros/as e incluso clientes/as, proveedores/as o terceras personas
-relacionados con la víctima por causa del trabajo.<br/>
-    b) Sujeto pasivo: este siempre quedará referido a cualquier trabajador/a,
-independientemente del nivel del mismo y de la naturaleza de la relación
-laboral.
-  </p>
-  <p>
-    <b>Cláusula quinta. Tipos de acoso sexual y acoso por razón de
-sexo.</b>
-  </p>
-  <p>
-        a) Chantaje sexual. Se habla de chantaje sexual cuando la negativa o la
-    sumisión de una persona a una conducta se utiliza, implícita o explícitamente,
-    como fundamento de una decisión que repercute sobre el acceso de esta
-    persona a la formación profesional, al trabajo, a la continuidad del trabajo, la
-    promoción profesional, el salario, entre otras.<br>
-    Solo son sujetos activos de este tipo de acoso aquellas personas que tengan
-    poder de decidir sobre la relación laboral, es decir, la persona jerárquicamente
-    superior.<br>
-    b) Acoso sexual ambiental. Su característica principal es que los sujetos activos
-    mantienen una conducta de naturaleza sexual, de cualquier tipo, que tiene
-    como consecuencia, buscada o no, producir un contexto intimidatorio, hostil,
-    ofensivo o humillante. La condición afectada es el entorno, el ambiente de
-    trabajo.<br>
-    En este caso, también pueden ser sujetos activos los compañeros y compañeras
-    de trabajo o terceras personas, relacionadas de alguna manera con la
-    cooperativa.<br>
-    Como ejemplo de este tipo de conductas, se pueden citar los comentarios,
-    insinuaciones y chistes de naturaleza y contenido sexual, la decoración del
-    entorno con motivos sexuales, la exhibición de revistas con contenido sexual,
-    etc.
-  </p>
-  <p style='page-break-before: always; margin-top:100px; margin-bottom: 30px;'>
-    <b> Cláusula sexta. Política de información y divulgación. </b>
-  </p>
-  <p  style="margin-bottom: 30px;">
-    La sociedad cooperativa llevará a cabo una política de prevención, a través de
-políticas de eliminación de cualquier tipo de discriminación y de los mecanismos
-para divulgar el presente Protocolo.<br>
-Además, la Dirección de la cooperativa, en colaboración con la figura
-mediadora, se compromete a fomentar el respeto y la consideración entre todo
-el personal promoviendo jornadas u otro tipo de eventos, elaborando material
-informativo y realizando cualquier acción que se estime necesaria para el
-cumplimento de los fines de este Protocolo.<br>
-Como primera medida de difusión, se incluirá el Protocolo acordado por la
-Asamblea General en los Estatutos o Reglamento de Régimen Interno.
-Se entregará el Protocolo a toda la plantilla de personal de la sociedad
-cooperativa para que tenga constancia expresa del mismo.<br>
-Se incluirá formación específica para la prevención del acoso sexual y, en
-definitiva sobre discriminación por razón de sexo dirigida a todo al personal
-encargado de gestionar recursos humanos. Estas actuaciones se incluirán en el
-Fondo de Formación y Sostenibilidad de la cooperativa, cumpliendo lo
-establecido en el artículo 71, apartados c) y g), de Ley 14/2011, de 23 de
-diciembre, de Sociedades Cooperativas Andaluzas.
-  </p>
-  <p  style="margin-bottom: 30px;">
-    <b>Cláusula séptima. La Comisión para la prevención y el
-tratamiento de los casos de acoso sexual y por razón de sexo.</b>
-</p>
-<p>
-  Se constituirá una Comisión para la prevención y el tratamiento de los casos de
-acoso sexual y por razón de sexo (en adelante Comisión) a la que la sociedad
-cooperativa deberá capacitar con formación específica en la materia.
-</p>
-<p>
-  La función de la Comisión es la de promover ante el departamento / la persona
-responsable de Recursos Humanos de la cooperativa, medidas concretas y
-efectivas en el ámbito de la cooperativa y las personas que trabajan en ella,
-con la voluntad de combatir este problema, asegurando un trabajo de
-prevención, información, sensibilización y formación sobre este tema, así como
-asegurando la igualdad de oportunidades y la no discriminación entre hombres
-y mujeres.
-</p>
-<p style='page-break-before: always; margin-top:100px;'>
-  La Comisión estará formada por una persona representante del órgano de
-administración (persona Instructora) y por la figura mediadora, estando ambos
-sexos representados en forma paritaria, y podrá contar en todo momento con
-el asesoramiento de una persona técnica en igualdad o agente de igualdad.
-Se debe informar a todo el personal, especialmente a las personas socias
-trabajadoras de la cooperativa, sobre la constitución de la Comisión y sobre las
-funciones de la misma.
-</p>
-<p>
-  El tiempo en el que las personas representantes formarán parte de la Comisión
-será el que corresponda con lo estipulado en su nombramiento, pudiendo ser
-sustituidas por la parte a la que represente cuando ésta lo considere necesario,
-en los términos que se establezcan al efecto.
-</p>
-<p>
-  A través de departamento / la persona responsable de Recursos Humanos se
-les proveerá de los medios materiales así como de la disponibilidad horaria para
-poder realizar sus funciones.
-</p>
-<p>
-  No podrá formar parte de la Comisión cualquier persona involucrada en un
-procedimiento de acoso o afectada por relación de parentesco, de amistad o
-enemistad manifiesta, o de superioridad o subordinación jerárquica inmediata
-respecto de la víctima o la persona denunciada, quedando automáticamente
-invalidada para formar parte de dicho proceso. Tampoco si fuere la persona
-denunciada, que quedará invalidada para cualquier procedimiento hasta la
-resolución de su caso.
-</p>
-<p>
-  En estas situaciones, la parte correspondiente sustituirá al objeto de restablecer
-la paridad en la Comisión.
-La Comisión podrá atender consultas anónimas o informales de personas socias
-trabajadoras, empleadas y autónomas, en relación a la materia relacionada con
-sus competencias. Dichas consultas serán confidenciales.
-</p>
-<p>
-Anualmente, la Comisión efectuará un informe, sin datos personales o con
-datos disociados del conjunto de sus actuaciones que elevará a la dirección de
-departamento / la persona responsable de Recursos Humanos, del que se dará
-publicidad por los medios habituales a toda la plantilla de la cooperativa.
-</p>
-<p>
-  Las competencias específicas de la Comisión son:
-</p>
-<p>
-a) Recibir todas las denuncias por acoso sexual y acoso por razón de sexo.
-</p>
-<p>
-b) Llevar a cabo la investigación de las denuncias de acuerdo con lo establecido
-en este protocolo, para lo que dispondrá de los medios necesarios y tendrá
-acceso a toda la información y documentación que pudiera tener relación con el
-caso. Tendrá libre acceso a todas las dependencias de la cooperativa, debiendo
-toda la plantilla de personal prestar la debida colaboración que se le requiera,
-previa información al departamento / a la persona responsable de Personal.
-</p>
-<p style='page-break-before: always; margin-top:100px;'>
-c) Recomendar y gestionar ante el departamento / la persona responsable de
-Personal las medidas preventivas que se estimen convenientes.
-</p>
-<p>
-d) Elaborar un informe con las conclusiones sobre el supuesto de acoso
-investigado, que incluirán los indicios y medios de prueba del caso, sus posibles
-agravantes o atenuantes, e instar, en su caso, a la dirección de departamento /
-la persona responsable de Recursos Humanos de la cooperativa a la apertura
-de procedimiento disciplinario contra la persona denunciada, debiendo ser
-informada de tal extremo y de la sanción impuesta.
-</p>
-<p>
-e) Supervisar el efectivo cumplimiento de las sanciones impuestas como
-consecuencia de casos de acoso sexual y el acoso por razón de sexo.
-</p>
-<p>
-f) Velar por las garantías comprendidas en este protocolo.
-</p>
-<p  style="margin-bottom: 30px;">
-g) Cualesquiera otras que se pudieran derivar de la naturaleza de sus funciones
-y de lo contemplado en el presente protocolo.
-</p>
-<p style="margin-bottom: 30px;">
-La Comisión llevará a cabo sus actuaciones y adoptará decisiones por mayoría
-de votos.
-</p>
-<p style="margin-bottom: 30px;">
-  <b>Cláusula octava. Persona asesora con carácter confidencial.</b>
-</p>
-<p>
-  La Comisión, ante un caso concreto, delegará en una de las personas que la
-componen (persona Instructora y figura mediadora), a elección de la persona
-denunciante, las siguientes competencias en materia de acoso:
-</p>
-<p>
-  a) Atender durante todo el procedimiento a la persona que denuncia ser víctima
-de una situación de acoso sexual y/o acoso por razón de sexo e iniciar las
-actuaciones que sean precisas.
-</p>
-<p>
-b) Representar a la víctima ante la Comisión, siempre que esta así lo determine.</p>
-<p>
-c) Efectuar las entrevistas con las personas afectadas. Para ello podrá recabar
-la intervención de personas expertas (psicólogos/as, juristas, médicos/as, etc.).
-También podrá mantener reuniones con las personas implicadas que estime
-oportunas y tendrá acceso a los centros de trabajo.</p>
-<p>
-d) Asistir a la víctima durante todo el proceso de investigación, manteniéndola
-informada del estado de la misma, así como, en su caso, en la tramitación del
-procedimiento disciplinario posterior. Igualmente, prestará la asistencia
-necesaria posterior que, razonablemente, necesitase la víctima, incluida la
-gestión ante el órgano de administración de la cooperativa de aquellas medidas
-que resultasen convenientes adoptar.</p>
-<p>
-e) Reportar a la Comisión el informe preliminar.
-</p>
-
-
-
-  </div>
-
   <script src='dist/jspdf.min.js'></script>
 
   <script>
   var base64Img = null;
-  imgToBase64('', function(base64) {
+  imgToBase64('images/logo_iam.jpg', function(base64) {
       base64Img = base64;
   });
 
@@ -1602,23 +1140,27 @@ e) Reportar a la Comisión el informe preliminar.
     left: 60,
     width: 550
   };
-  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-  var fecha=new Date();
 
   generate = function()
   {
-    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-    var f=new Date();
-    $('#nombre_empresa1').text($('#nombre_empresa').val());
+
+/*    $('#nombre_empresa1').text($('#nombre_empresa').val());
     $('#nombre1').text($('#nombre').val());
     $('#cif1').text($('#cif').val());
     $('#puesto1').text($('#puesto').val());
     $('#domicilio1').text($('#domicilio').val());
     $('#nombre_empresa1').text($('#nombre_empresa').val());
     $('#fecha1').text(fecha.getDate() + " de " + meses[fecha.getMonth()] + " de " + fecha.getFullYear());
-  	var pdf = new jsPDF('p', 'pt', 'a4');
+*/  	var pdf = new jsPDF('p', 'pt', 'a4');
   	pdf.setFontSize(14);
-  	pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
+    // Obtener el codigo html de p1
+    var my_var = '';
+    var htmlp1 = $.get("pdf/p1.html", function( my_var ) {
+      console.log('Contenido cargado')
+    var  htmltext = my_var;
+}, 'html');
+    console.log(my_var);
+  	pdf.fromHTML(htmlp1.responseText,
   		margins.left, // x coord
   		margins.top,
   		{
@@ -1656,7 +1198,10 @@ e) Reportar a la Comisión el informe preliminar.
       doc.setFontStyle('normal');
 
       if (base64Img) {
+         doc.addImage(base64Img, 'JPEG', margins.left, 10, 40,40);
       }
+
+      doc.text("Report Header Template", margins.left + 50, 40 );
 
   };
 
