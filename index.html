@@ -1130,7 +1130,27 @@
 
   <script src='dist/jspdf.min.js'></script>
 
+
+ </div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src='google-sheet.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  <script src="include/js/jquery.dependent.fields.js"></script>
   <script>
+      $(document).ready(function(){
+        $('#trabajadores').dependsOn('#formula', ['autonomo', 'cooperativa', 'otro']);
+        $('#representacion').dependsOn('#trabajadores', ['-250']);
+      });
+  </script>
+    <script>
+$(document).ready(function() {
+  //your code here
+
+
   var base64Img = null;
   imgToBase64('images/logo_iam.png', function(base64) {
       base64Img = base64;
@@ -1153,45 +1173,49 @@
     $('#domicilio1').text($('#domicilio').val());
     $('#nombre_empresa1').text($('#nombre_empresa').val());
     $('#fecha1').text(fecha.getDate() + " de " + meses[fecha.getMonth()] + " de " + fecha.getFullYear());
-  	var pdf = new jsPDF('p', 'pt', 'a4');
-  	pdf.setFontSize(14);
+    */
+ /*   var pdf = new jsPDF('p', 'pt', 'a4');
+    pdf.setFontSize(14);
     // Obtener el codigo html de p1
-    /*var my_var = '';
+    var my_var = '';
     var htmlp1 = $.get("pdf/cooperativa.html", function( my_var ) {
       console.log('Contenido cargado')
     var htmltext = my_var;
     }, 'html');
-    console.log(my_var);
-  	pdf.fromHTML(htmlp1.responseText,
-  		margins.left, // x coord
-  		margins.top,
-  		{
-  			// y coord
-  			width: 470// max width of content on PDF
-  		},function(dispose) {
-  			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
-  		},
-  		margins);
+    console.log(my_var); */
+  /*  pdf.fromHTML(htmlp1.responseText,
+      margins.left, // x coord
+      margins.top,
+      {
+        // y coord
+        width: 470// max width of content on PDF
+      },function(dispose) {
+        headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
+      },
+      margins);
 */
+    
+$("#html-2-pdfwrapper").load("pdf/cooperativa.html");
+
 generate = function()
  {
-  	var pdf = new jsPDF('p', 'pt', 'a4');
-  	pdf.setFontSize(23);
-  	pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
-  		margins.left, // x coord
-  		margins.top,
-  		{
-  			// y coord
-  			width: margins.width// max width of content on PDF
-  		},function(dispose) {
-  			headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
-  		},
-  		margins);
-  	//var iframe = document.createElement('iframe');
-  	//iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
-  	//document.body.appendChild(iframe);
+    var pdf = new jsPDF('p', 'pt', 'a4');
+    pdf.setFontSize(23);
+    pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
+      margins.left, // x coord
+      margins.top,
+      {
+        // y coord
+        width: margins.width// max width of content on PDF
+      },function(dispose) {
+        headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
+      },
+      margins);
+    //var iframe = document.createElement('iframe');
+    //iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
+    //document.body.appendChild(iframe);
 
-  	//iframe.src =
+    //iframe.src =
     pdf.save('protocolo.pdf');
   };
   function headerFooterFormatting(doc, totalPages)
@@ -1234,7 +1258,7 @@ generate = function()
       xhr.onload = function() {
           var reader = new FileReader();
           reader.onloadend = function() {
-  			imgVariable = reader.result.replace('text/xml', 'image/jpeg');
+        imgVariable = reader.result.replace('text/xml', 'image/jpeg');
               callback(imgVariable);
           };
           reader.readAsDataURL(xhr.response);
@@ -1252,21 +1276,7 @@ generate = function()
 
   };
 
+}); //document.ready
    </script>
- </div>
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src='google-sheet.js'></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-  <script src="include/js/jquery.dependent.fields.js"></script>
-  <script>
-      $(document).ready(function(){
-        $('#trabajadores').dependsOn('#formula', ['autonomo', 'cooperativa', 'otro']);
-        $('#representacion').dependsOn('#trabajadores', ['-250']);
-      });
-  </script>
 
   </html>
