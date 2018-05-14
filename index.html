@@ -1141,7 +1141,7 @@
   <script src="include/js/jquery.dependent.fields.js"></script>
   <script>
       $(document).ready(function(){
-        $('#trabajadores').dependsOn('#formula', ['autonomo', 'cooperativa', 'otro']);
+        $('#trabajadores').dependsOn('#formula', ['otro']);
         $('#representacion').dependsOn('#trabajadores', ['-250']);
       });
   </script>
@@ -1197,6 +1197,30 @@ $(document).ready(function() {
         headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
       },
       margins);
+*/
+
+/*
+-- Generar PDFs distintos según casos --
+var formula_juridica = $('#formula').val();
+var n_trabajadores = $('#trabajadores').val();
+var tiene_representacion = $('#representacion').val();
+
+if (formula_juridica==autonomo) {
+  $("#html-2-pdfwrapper").load("pdf/autonomos.html");
+}
+
+if (formula_juridica==cooperativa) {
+  $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
+}
+
+if (formula_juridica==otro) && (trabajadores==+250) {
+  $("#html-2-pdfwrapper").load("pdf/grandes.html");
+}
+
+if (formula_juridica==otro) && (n_trabajadores==-250) && (tiene_representacion==no){
+  $("#html-2-pdfwrapper").load("pdf/pequeñas_sin.html");
+}
+
 */
 
 $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
