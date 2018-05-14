@@ -1198,9 +1198,8 @@ $(document).ready(function() {
       },
       margins);
 */
-
 /*
--- Generar PDFs distintos según casos --
+// Generar PDFs distintos según casos
 var formula_juridica = $('#formula').val();
 var n_trabajadores = $('#trabajadores').val();
 var tiene_representacion = $('#representacion').val();
@@ -1219,15 +1218,20 @@ if (formula_juridica==otro) && (trabajadores==+250) {
 
 if (formula_juridica==otro) && (n_trabajadores==-250) && (tiene_representacion==no){
   $("#html-2-pdfwrapper").load("pdf/pequeñas_sin.html");
-}
-
-*/
+} */
 
 $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
 
 generate = function()
  {
-    var newPDF = $("#html-2-pdfwrapper").html().replace('NOMBRE_COMPLETO',$("#nombre").val());
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    var f=new Date();
+    var newPDF = $("#html-2-pdfwrapper").html().replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
+    newPDF = newPDF.replace(/NOMBRE_COMPLETO/g,$("#nombre").val());
+    newPDF = newPDF.replace(/PUESTO/g,$("#puesto").val());
+    newPDF = newPDF.replace(/cif/g,$("#cif").val());
+    newPDF = newPDF.replace(/DOMICILIO/g,$("#domicilio").val());
+    newPDF = newPDF.replace(/FECHA/g, document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
     var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.setFontSize(23);
     pdf.fromHTML(newPDF,
@@ -1303,7 +1307,7 @@ generate = function()
       doc.setFontSize(10);
       doc.text(str, 500, doc.internal.pageSize.height - 20);
       if (base63Img) {
-         doc.addImage(base63Img, 'JPEG', margins.left, 792, 160, 42);
+         doc.addImage(base63Img, 'JPEG', margins.left, 785, 160, 53);
       }
   };
 
