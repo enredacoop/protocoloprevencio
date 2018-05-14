@@ -1211,25 +1211,31 @@ generate = function()
 
 
     if (formula_juridica=="autonomo") {
-      $("#html-2-pdfwrapper").load("pdf/autonomos.html");
+     var url = "pdf/autonomos.html";
     }
 
     if (formula_juridica=="cooperativa") {
-      $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
+       var url = "pdf/cooperativa.html";
     }
 
-    if ((formula_juridica=="otro") && (trabajadores=="+250")) {
-      $("#html-2-pdfwrapper").load("pdf/grandes.html");
+    if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
+    var url = "pdf/grandes.html";
     }
 
     if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
-      $("#html-2-pdfwrapper").load("pdf/grandes.html");
+      var url = "pdf/grandes.html";
     }
 
     if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="no")) {
-      $("#html-2-pdfwrapper").load("pdf/pequeñas_sin.html");
+            var url = "pdf/pequeñas_sin.html";
     }
-    var newPDF = $("#html-2-pdfwrapper").html().replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
+
+
+    $.get( url, function( data ) {
+       console.log( "Load was performed." + data );
+       var newPDF = data;
+
+    newPDF = newPDF.replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
     newPDF = newPDF.replace(/NOMBRE_COMPLETO/g,$("#nombre").val());
     newPDF = newPDF.replace(/PUESTO/g,$("#puesto").val());
     newPDF = newPDF.replace(/CIF_EMPRESA/g,$("#cif").val());
@@ -1253,6 +1259,12 @@ generate = function()
 
     //iframe.src =
     pdf.save('Protocolo.pdf');
+
+
+        });
+
+
+   
   };
   function headerFooterFormatting(doc, totalPages)
   {
