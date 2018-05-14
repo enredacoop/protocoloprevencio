@@ -7,6 +7,7 @@
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
   <title> Crea tu protocolo </title>
+  <link rel="icon" href="images/favicon.png">
   <style>
     @CHARSET "UTF-8";
     .page-break {
@@ -1138,7 +1139,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src='google-sheet.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
   <script src="include/js/jquery.dependent.fields.js"></script>
   <script>
       $(document).ready(function(){
@@ -1154,6 +1155,11 @@ $(document).ready(function() {
   var base64Img = null;
   imgToBase64('images/logo_iam.png', function(base64) {
       base64Img = base64;
+  });
+
+  var base63Img = null;
+  imgToBase64('images/equipa.jpg', function(base63) {
+      base63Img = base63;
   });
 
   margins = {
@@ -1272,8 +1278,10 @@ generate = function()
       var str = pageNumber + " / " + totalPages
 
       doc.setFontSize(10);
-      doc.text(str, margins.left, doc.internal.pageSize.height - 20);
-
+      doc.text(str, 500, doc.internal.pageSize.height - 20);
+      if (base63Img) {
+         doc.addImage(base63Img, 'JPEG', margins.left, 792, 160, 42);
+      }
   };
 
 }); //document.ready
