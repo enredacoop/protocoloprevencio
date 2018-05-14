@@ -63,7 +63,7 @@
       </div>
       <div class="form-group">
         <label for="exampleSelect1">Actividad</label><br>
-        <select class="selectpicker" style="width: 804px;" name="actividad" id="actividad" data-width="643px" data-show-subtext="true" data-live-search="true">
+        <select class="selectpicker" style="width: 804px;" name="actividad" id="actividad" data-width="645px" data-show-subtext="true" data-live-search="true">
           <option data-tokens="A">A - Agricultura, ganadería, silvicultura y pesca</option>
           <option data-tokens="01">01 - Agricultura, ganadería, caza y servicios relacionados con las mismas</option>
           <option data-tokens="011">011 - Cultivos no perennes</option>
@@ -1231,7 +1231,7 @@ generate = function()
     newPDF = newPDF.replace(/PUESTO/g,$("#puesto").val());
     newPDF = newPDF.replace(/cif/g,$("#cif").val());
     newPDF = newPDF.replace(/DOMICILIO/g,$("#domicilio").val());
-    newPDF = newPDF.replace(/FECHA/g, document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
+    newPDF = newPDF.replace(/FECHA/g,(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
     var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.setFontSize(23);
     pdf.fromHTML(newPDF,
