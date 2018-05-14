@@ -1079,7 +1079,7 @@
       <div class="form-group">
       <p>
           <label for="master-dropdown">Fórmula Jurídica <span style="color: red;">*</span></label>
-        <select name="formula" id="formula" class="form-control" required>
+        <select name="formula" id="formula" class="form-control">
           <option value="">-- Seleccionar --</option>
           <option value="autonomo">Persona autónoma</option>
           <option value="cooperativa">Cooperativa</option>
@@ -1090,7 +1090,7 @@
       <div class="form-group">
       <p>
       <label for="dependent-dropdown">Nº de personas trabajadoras <span style="color: red;">*</span></label>
-      <select name="trabajadores" id="trabajadores" class="form-control" required>
+      <select name="trabajadores" id="trabajadores" class="form-control">
           <option value="">-- Seleccionar --</option>
           <option value="+250">+250 personas</option>
           <option value="-250">-250 personas</option>
@@ -1100,7 +1100,7 @@
       <div class="form-group">
       <p>
       <label for="dependent-dropdown">Tiene Representación Sindical <span style="color: red;">*</span></label>
-      <select name="representacion" id="representacion" class="form-control" required>
+      <select name="representacion" id="representacion" class="form-control">
           <option value="">-- Seleccionar --</option>
           <option value="si">Si</option>
           <option value="no">No</option>
@@ -1198,38 +1198,41 @@ $(document).ready(function() {
       },
       margins);
 */
-/*
+
 // Generar PDFs distintos según casos
-var formula_juridica = $('#formula').val();
-var n_trabajadores = $('#trabajadores').val();
-var tiene_representacion = $('#representacion').val();
-
-if (formula_juridica==autonomo) {
-  $("#html-2-pdfwrapper").load("pdf/autonomos.html");
-}
-
-if (formula_juridica==cooperativa) {
-  $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
-}
-
-if (formula_juridica==otro) && (trabajadores==+250) {
-  $("#html-2-pdfwrapper").load("pdf/grandes.html");
-}
-
-if (formula_juridica==otro) && (n_trabajadores==-250) && (tiene_representacion==no){
-  $("#html-2-pdfwrapper").load("pdf/pequeñas_sin.html");
-} */
-
-$("#html-2-pdfwrapper").load("pdf/cooperativa.html");
 
 generate = function()
  {
     var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
     var f=new Date();
+    var formula_juridica = $('#formula').val();
+    var n_trabajadores = $('#trabajadores').val();
+    var tiene_representacion = $('#representacion').val();
+
+
+    if (formula_juridica=="autonomo") {
+      $("#html-2-pdfwrapper").load("pdf/autonomos.html");
+    }
+
+    if (formula_juridica=="cooperativa") {
+      $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
+    }
+
+    if ((formula_juridica=="otro") && (trabajadores=="+250")) {
+      $("#html-2-pdfwrapper").load("pdf/grandes.html");
+    }
+
+    if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
+      $("#html-2-pdfwrapper").load("pdf/grandes.html");
+    }
+
+    if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="no")) {
+      $("#html-2-pdfwrapper").load("pdf/pequeñas_sin.html");
+    }
     var newPDF = $("#html-2-pdfwrapper").html().replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
     newPDF = newPDF.replace(/NOMBRE_COMPLETO/g,$("#nombre").val());
     newPDF = newPDF.replace(/PUESTO/g,$("#puesto").val());
-    newPDF = newPDF.replace(/cif/g,$("#cif").val());
+    newPDF = newPDF.replace(/CIF_EMPRESA/g,$("#cif").val());
     newPDF = newPDF.replace(/DOMICILIO/g,$("#domicilio").val());
     newPDF = newPDF.replace(/FECHA/g,(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
     var pdf = new jsPDF('p', 'pt', 'a4');
