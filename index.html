@@ -1203,9 +1203,10 @@ $("#html-2-pdfwrapper").load("pdf/cooperativa.html");
 
 generate = function()
  {
+    var newPDF = $("#html-2-pdfwrapper").html().replace('NOMBRE_COMPLETO',$("#nombre").val());
     var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.setFontSize(23);
-    pdf.fromHTML(document.getElementById('html-2-pdfwrapper'),
+    pdf.fromHTML(newPDF,
       margins.left, // x coord
       margins.top,
       {
