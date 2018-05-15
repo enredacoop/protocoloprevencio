@@ -1079,7 +1079,7 @@
       <div class="form-group">
       <p>
           <label for="master-dropdown">Fórmula Jurídica <span style="color: red;">*</span></label>
-        <select name="formula" id="formula" class="form-control">
+        <select name="formula" id="formula" class="form-control" required>
           <option value="">-- Seleccionar --</option>
           <option value="autonomo">Persona autónoma</option>
           <option value="cooperativa">Cooperativa</option>
@@ -1107,6 +1107,36 @@
         </select>
       </p>
       </div>
+      <div class="form-group">
+      <p>
+      <label for="dependent-dropdown">Nombre del Representante <span style="color: red;">*</span></label>
+      <input type="text" class="form-control" placeholder="Enter name" name="representante" id="representante">
+      </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="dependent-dropdown">Puesto del Representante <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="Enter job" name="puesto_rep" id="puesto_rep">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="dependent-dropdown">Órgano de Representación <span style="color: red;">*</span></label>
+          <input type="text" class="form-control" placeholder="Enter name" name="organizacion" id="organizacion">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="dependent-dropdown">Domicilio Completo <span style="color: red;">*</span></label>
+          <textarea class="form-control" name="domicilio_org" id="domicilio_org" rows="3" required></textarea>
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="dependent-dropdown">CIF <span style="color: red;">*</span></label>
+          <input class="form-control" placeholder="Enter CIF" type="text" value="" name="cif_org" id="cif_org">
+        </p>
+      </div>
 
       <div class="form-group">
         <label>
@@ -1114,10 +1144,9 @@
         </label>
       </div>
 
-      <!--recaptcha
-      <script src='https://www.google.com/recaptcha/api.js'></script>-->
+      <!--<script src='https://www.google.com/recaptcha/api.js'></script>
+      <div style="margin-bottom: 20px;" class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
 
-      <!--recaptcha<div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
       <p style="font-size: 14px;"><b>AVISO</b>: Al generar el protocolo acepta la Política de privacidad del
     Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
     El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
@@ -1128,7 +1157,6 @@
     <div id="html-2-pdfwrapper" style="font-size: 14px; text-align: justify; text-justify: inter-word; display: none">
 
   <script src='dist/jspdf.min.js'></script>
-
 
  </div>
 </div>
@@ -1143,6 +1171,16 @@
       $(document).ready(function(){
         $('#trabajadores').dependsOn('#formula', ['otro']);
         $('#representacion').dependsOn('#trabajadores', ['-250']);
+        $('#representante').dependsOn('#trabajadores', ['+250']);
+        $('#organizacion').dependsOn('#trabajadores', ['+250']);
+        $('#cif_org').dependsOn('#trabajadores', ['+250']);
+        $('#puesto_rep').dependsOn('#trabajadores', ['+250']);
+        $('#domicilio_org').dependsOn('#trabajadores', ['+250']);
+        $('#representante').dependsOn('#representacion', ['si']);
+        $('#organizacion').dependsOn('#representacion', ['si']);
+        $('#cif_org').dependsOn('#representacion', ['si']);
+        $('#puesto_rep').dependsOn('#representacion', ['si']);
+        $('#domicilio_org').dependsOn('#representacion', ['si']);
       });
   </script>
     <script>
@@ -1208,7 +1246,8 @@ generate = function()
     var formula_juridica = $('#formula').val();
     var n_trabajadores = $('#trabajadores').val();
     var tiene_representacion = $('#representacion').val();
-
+    var nombre_representante = $('representante').val();
+    var nombre_organizacion = $('organizacion').val();
 
     if (formula_juridica=="autonomo") {
      var url = "pdf/autonomos.html";
@@ -1237,9 +1276,14 @@ generate = function()
 
     newPDF = newPDF.replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
     newPDF = newPDF.replace(/NOMBRE_COMPLETO/g,$("#nombre").val());
-    newPDF = newPDF.replace(/PUESTO/g,$("#puesto").val());
+    newPDF = newPDF.replace(/PUESTO_EMPRESA/g,$("#puesto").val());
+    newPDF = newPDF.replace(/PUESTO_REP/g,$("#puesto_rep").val());
     newPDF = newPDF.replace(/CIF_EMPRESA/g,$("#cif").val());
-    newPDF = newPDF.replace(/DOMICILIO/g,$("#domicilio").val());
+    newPDF = newPDF.replace(/CIF_ORGANIZACION/g,$("#cif_org").val());
+    newPDF = newPDF.replace(/DOMICILIO_EMPRESA/g,$("#domicilio").val());
+    newPDF = newPDF.replace(/DOMICILIO_ORG/g,$("#domicilio_org").val());
+    newPDF = newPDF.replace(/REPRESENTANTE/g,$("#representante").val());
+    newPDF = newPDF.replace(/ORGANIZACION/g,$("#organizacion").val());
     newPDF = newPDF.replace(/FECHA/g,(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
     var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.setFontSize(23);
@@ -1264,7 +1308,7 @@ generate = function()
         });
 
 
-   
+
   };
   function headerFooterFormatting(doc, totalPages)
   {
@@ -1322,7 +1366,7 @@ generate = function()
       doc.setFontSize(10);
       doc.text(str, 500, doc.internal.pageSize.height - 20);
       if (base63Img) {
-         doc.addImage(base63Img, 'JPEG', margins.left, 785, 160, 53);
+         doc.addImage(base63Img, 'JPEG', margins.left, 780, 160, 55);
       }
   };
 
