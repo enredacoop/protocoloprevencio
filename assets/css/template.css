@@ -2298,7 +2298,7 @@ th {
         page-break-after: avoid
     }
     select {
-        background: #fff!important
+        background: white!important
     }
     .navbar {
         display: none
