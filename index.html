@@ -1144,8 +1144,8 @@
         </label>
       </div>
 
-      <!--<script src='https://www.google.com/recaptcha/api.js'></script>
-      <div style="margin-bottom: 20px;" class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <div style="margin-bottom: 20px;" class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>
 
       <p style="font-size: 14px;"><b>AVISO</b>: Al generar el protocolo acepta la Política de privacidad del
     Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
@@ -1185,8 +1185,6 @@
   </script>
     <script>
 $(document).ready(function() {
-  //your code here
-
 
   var base64Img = null;
   imgToBase64('images/logo_iam.jpeg', function(base64) {
@@ -1205,42 +1203,7 @@ $(document).ready(function() {
     width: 460
   };
 
-  /* generate = function()
-  {
-
-    $('#nombre_empresa1').text($('#nombre_empresa').val());
-    $('#nombre1').text($('#nombre').val());
-    $('#cif1').text($('#cif').val());
-    $('#puesto1').text($('#puesto').val());
-    $('#domicilio1').text($('#domicilio').val());
-    $('#nombre_empresa1').text($('#nombre_empresa').val());
-    $('#fecha1').text(fecha.getDate() + " de " + meses[fecha.getMonth()] + " de " + fecha.getFullYear());
-    */
- /*   var pdf = new jsPDF('p', 'pt', 'a4');
-    pdf.setFontSize(14);
-    // Obtener el codigo html de p1
-    var my_var = '';
-    var htmlp1 = $.get("pdf/cooperativa.html", function( my_var ) {
-      console.log('Contenido cargado')
-    var htmltext = my_var;
-    }, 'html');
-    console.log(my_var); */
-  /*  pdf.fromHTML(htmlp1.responseText,
-      margins.left, // x coord
-      margins.top,
-      {
-        // y coord
-        width: 470// max width of content on PDF
-      },function(dispose) {
-        headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
-      },
-      margins);
-*/
-
-// Generar PDFs distintos según casos
-
-generate = function()
- {
+generate = function() {
     var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
     var f=new Date();
     var formula_juridica = $('#formula').val();
@@ -1269,9 +1232,7 @@ generate = function()
             var url = "pdf/pequeñas_sin.html";
     }
 
-
     $.get( url, function( data ) {
-       console.log( "Load was performed." + data );
        var newPDF = data;
 
     newPDF = newPDF.replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
@@ -1297,18 +1258,8 @@ generate = function()
         headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
       },
       margins);
-    //var iframe = document.createElement('iframe');
-    //iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
-    //document.body.appendChild(iframe);
-
-    //iframe.src =
-    pdf.save('Protocolo.pdf');
-
-
+          pdf.save('Protocolo.pdf');
         });
-
-
-
   };
   function headerFooterFormatting(doc, totalPages)
   {
@@ -1332,13 +1283,10 @@ generate = function()
       if (base64Img) {
          doc.addImage(base64Img, 'JPEG', margins.left, 12, 270, 50);
       }
-
       doc.text("", margins.left + 50, 40 );
 
   };
 
-  // You could either use a function similar to this or pre convert an image with for example http://dopiaza.org/tools/datauri
-  // http://stackoverflow.com/questions/6150289/how-to-convert-image-into-base64-string-using-javascript
   function imgToBase64(url, callback, imgVariable) {
 
       if (!window.FileReader) {
@@ -1370,7 +1318,7 @@ generate = function()
       }
   };
 
-}); //document.ready
+});
    </script>
 
   </html>
