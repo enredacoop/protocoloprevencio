@@ -1186,6 +1186,11 @@
 
  </div>
 </div>
+<div class="col-md-12" style="padding: 20px;">
+  <div class="copyright">
+    <p style="color: black; font-size: 12px;"><img src="images/equipa.jpeg" style="margin-right: 18%; width: 200px;">© Copyrignt 2017. Junta de Andalucía.<a href="ayuda.html" style="color: purple; margin-left: 21%; font-size: 15px;">Ayuda Legal</a></p>
+  </div>
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -1351,10 +1356,10 @@ generate = function() {
       doc.setFontSize(10);
       doc.text(str, 500, doc.internal.pageSize.height - 20);
       if (base63Img) {
-         doc.addImage(base63Img, 'JPEG', margins.left, 780, 160, 55);
+         doc.addImage(base63Img, 'JPEG', 53, 780, 160, 55);
       }
       if (base62Img) {
-         doc.addImage(base62Img, 'JPEG', 255, 785, 180, 47);
+         doc.addImage(base62Img, 'JPEG', 262, 781, 185, 50);
       }
   };
 
