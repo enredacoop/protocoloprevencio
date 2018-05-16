@@ -10061,3 +10061,9 @@ img {
     -o-transition-duration: 0s;
     transition-duration: 0s
 }
+
+@media (min-width: 576px) {
+  img {
+    width: 80%;
+  }
+}
