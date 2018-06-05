@@ -1144,37 +1144,6 @@ sexual-razon-sexo">
       </p>
       </div>
       <div class="form-group">
-      <p>
-      <label for="dependent-dropdown" style="font-size: 16px;">Nombre del Representante <span style="color: red;">*</span></label>
-      <input type="text" class="form-control" placeholder="Introduzca el nombre del representante" name="representante" id="representante">
-      </p>
-      </div>
-      <div class="form-group">
-        <p>
-          <label for="dependent-dropdown" style="font-size: 16px;">Puesto del Representante <span style="color: red;">*</span></label>
-          <input type="text" class="form-control" placeholder="Indique el puesto del representante" name="puesto_rep" id="puesto_rep">
-        </p>
-      </div>
-      <div class="form-group">
-        <p>
-          <label for="dependent-dropdown" style="font-size: 16px;">Órgano de Representación <span style="color: red;">*</span></label>
-          <input type="text" class="form-control" placeholder="Indique el órgano de representación de su empresa" name="organizacion" id="organizacion">
-        </p>
-      </div>
-      <div class="form-group">
-        <p>
-          <label for="dependent-dropdown" style="font-size: 16px;">Domicilio Completo <span style="color: red;">*</span></label>
-          <textarea class="form-control" name="domicilio_org" id="domicilio_org" rows="3"></textarea>
-        </p>
-      </div>
-      <div class="form-group">
-        <p>
-          <label for="dependent-dropdown" style="font-size: 16px;">NIF <span style="color: red;">*</span></label>
-          <input class="form-control" placeholder="Introduzca el NIF" type="text" value="" name="cif_org" id="cif_org">
-        </p>
-      </div>
-
-      <div class="form-group">
         <label>
           <input type="checkbox" name="responsable" id="responsable" value="si"> Desea ser "Empresa Responsable en la prevención del acoso sexual y por razón de sexo en el trabajo"
         </label>
@@ -1185,7 +1154,7 @@ sexual-razon-sexo">
 
       <!--recaptcha<div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
 
-      <p style="text-align: justify; text-justify: inter-word; margin-bottom: 3%; font-size: 15px;"><a href="ayuda.html"><b style="color: purple">AVISO LEGAL</b></a>: Al generar el protocolo acepta la Política de privacidad del
+      <p style="text-align: justify; text-justify: inter-word; margin-bottom: 3%; font-size: 15px;">AVISO LEGAL: Al generar el protocolo acepta la <a href="ayuda.html"><b style="color: purple">Política de Privacidad</b></a> del
     Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
     El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
     por la empresa con firma y sello, pasando ésta a ser considerada empresa
@@ -1227,11 +1196,6 @@ sexual-razon-sexo">
         $('#cif_org').dependsOn('#trabajadores', ['+250']);
         $('#puesto_rep').dependsOn('#trabajadores', ['+250']);
         $('#domicilio_org').dependsOn('#trabajadores', ['+250']);
-        $('#representante').dependsOn('#representacion', ['si']);
-        $('#organizacion').dependsOn('#representacion', ['si']);
-        $('#cif_org').dependsOn('#representacion', ['si']);
-        $('#puesto_rep').dependsOn('#representacion', ['si']);
-        $('#domicilio_org').dependsOn('#representacion', ['si']);
       });
   </script>
     <script>
