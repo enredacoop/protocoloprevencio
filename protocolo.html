@@ -1183,7 +1183,26 @@ sexual-razon-sexo">
   <script src="include/js/jquery.dependent.fields.js"></script>
   <script type="text/javascript">
   $( "form" ).submit(function( event ) {
-    generate();
+    var formula_juridica = $('#formula').val();
+    console.log(formula_juridica);
+    var n_trabajadores = $('#trabajadores').val();
+    console.log(n_trabajadores);
+    var tiene_representacion = $('#representacion').val();
+    console.log(tiene_representacion);
+    if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
+      var url = "pdf/pequenas_con.pdf";
+      console.log("HEY");
+      window.open(url, 'Download');
+    }
+
+    if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
+      var url = "pdf/pequenas_con.pdf";
+      console.log("HEY");
+      window.open(url, 'Download');
+    }
+    else {
+      generate();
+    }
     event.preventDefault();
   });
   </script>
@@ -1233,23 +1252,15 @@ generate = function() {
     var nombre_organizacion = $('organizacion').val();
 
     if (formula_juridica=="autonomo") {
-     var url = "pdf/autonomos.html";
+      var url = "pdf/autonomos.html";
     }
 
     if (formula_juridica=="cooperativa") {
-       var url = "pdf/cooperativa.html";
-    }
-
-    if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
-    var url = "pdf/grandes.html";
-    }
-
-    if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
-      var url = "pdf/grandes.html";
+      var url = "pdf/cooperativa.html";
     }
 
     if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="no")) {
-            var url = "pdf/pequeñas_sin.html";
+      var url = "pdf/pequeñas_sin.html";
     }
 
     $.get( url, function( data ) {
