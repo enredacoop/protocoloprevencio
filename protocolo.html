@@ -1190,14 +1190,13 @@ sexual-razon-sexo">
     var tiene_representacion = $('#representacion').val();
     console.log(tiene_representacion);
     if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
-      var url = "pdf/pequenas_con.pdf";
-      console.log("HEY");
+      var url = "pdf/sindicales.pdf";
+      console.log(formula_juridica + " " + n_trabajadores);
       window.open(url, 'Download');
     }
 
-    if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
-      var url = "pdf/pequenas_con.pdf";
-      console.log("HEY");
+    else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
+      var url = "pdf/sindicales.pdf";
       window.open(url, 'Download');
     }
     else {
@@ -1210,11 +1209,6 @@ sexual-razon-sexo">
       $(document).ready(function(){
         $('#trabajadores').dependsOn('#formula', ['otro']);
         $('#representacion').dependsOn('#trabajadores', ['-250']);
-        $('#representante').dependsOn('#trabajadores', ['+250']);
-        $('#organizacion').dependsOn('#trabajadores', ['+250']);
-        $('#cif_org').dependsOn('#trabajadores', ['+250']);
-        $('#puesto_rep').dependsOn('#trabajadores', ['+250']);
-        $('#domicilio_org').dependsOn('#trabajadores', ['+250']);
       });
   </script>
     <script>
@@ -1237,9 +1231,9 @@ $(document).ready(function() {
 
   margins = {
     top: 90,
-    bottom: 60,
-    left: 70,
-    width: 460
+    bottom: 90,
+    left: 80,
+    width: 430
   };
 
 generate = function() {
@@ -1248,8 +1242,6 @@ generate = function() {
     var formula_juridica = $('#formula').val();
     var n_trabajadores = $('#trabajadores').val();
     var tiene_representacion = $('#representacion').val();
-    var nombre_representante = $('representante').val();
-    var nombre_organizacion = $('organizacion').val();
 
     if (formula_juridica=="autonomo") {
       var url = "pdf/autonomos.html";
@@ -1269,13 +1261,8 @@ generate = function() {
     newPDF = newPDF.replace(/NOMBRE_EMPRESA/g,$("#nombre_empresa").val());
     newPDF = newPDF.replace(/NOMBRE_COMPLETO/g,$("#nombre").val());
     newPDF = newPDF.replace(/PUESTO_EMPRESA/g,$("#puesto").val());
-    newPDF = newPDF.replace(/PUESTO_REP/g,$("#puesto_rep").val());
     newPDF = newPDF.replace(/CIF_EMPRESA/g,$("#cif").val());
-    newPDF = newPDF.replace(/CIF_ORGANIZACION/g,$("#cif_org").val());
     newPDF = newPDF.replace(/DOMICILIO_EMPRESA/g,$("#domicilio").val());
-    newPDF = newPDF.replace(/DOMICILIO_ORG/g,$("#domicilio_org").val());
-    newPDF = newPDF.replace(/REPRESENTANTE/g,$("#representante").val());
-    newPDF = newPDF.replace(/ORGANIZACION/g,$("#organizacion").val());
     newPDF = newPDF.replace(/FECHA/g,(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()));
     var pdf = new jsPDF('p', 'pt', 'a4');
     pdf.setFontSize(23);
