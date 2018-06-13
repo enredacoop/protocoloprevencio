@@ -51,9 +51,7 @@
         </nav>
       </header>
             <div class="col-md-12 col-sm-12" style="margin-bottom: -2%; text-align: center">
-        <a href="http://www.juntadeandalucia.es/institutodelamujer/index.php/2013-08-08-
-11-30-38/servicio-asesoramiento-empresas/protocolo-prevencion-acoso-
-sexual-razon-sexo">
+        <a href="http://www.juntadeandalucia.es/institutodelamujer/index.php/2013-08-08-11-30-38/servicio-asesoramiento-empresas/protocolo-prevencion-acoso-sexual-razon-sexo">
           <img src="images/banner.jpg" style="position: relative; text-align: center">
         </a>
       </div>
@@ -62,7 +60,7 @@ sexual-razon-sexo">
       <div class="container">
   <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
     <h1 style="padding-bottom: 2%;"> Crea el protocolo de tu empresa </h1>
-    <form id="foo">
+    <form id="foo" action="index.html">
       <div class="form-group">
       <label for="example-text-input" style="font-size: 16px;">Nombre de la empresa <span style="color: red;">*</span></label>
           <input class="form-control" placeholder="Escriba el nombre de su compañía" type="text" value="" name="nombre_empresa" id="nombre_empresa" required>
@@ -1154,12 +1152,12 @@ sexual-razon-sexo">
 
       <!--recaptcha<div class="g-recaptcha" data-callback="recaptcha_callback" data-sitekey="6LdswVIUAAAAAFn1HsP_EI_uptsFItdcNgz92uz8"></div>-->
 
-      <p style="text-align: justify; text-justify: inter-word; margin-bottom: 3%; font-size: 15px;">AVISO LEGAL: Al generar el protocolo acepta la <a href="ayuda.html"><b style="color: purple">Política de Privacidad</b></a> del
+      <p style="text-align: justify; text-justify: inter-word; margin-bottom: 3%; font-size: 15px;"><b>AVISO LEGAL</b>: Al generar el protocolo acepta la <a href="ayuda.html"><b style="color: purple">Política de Privacidad</b></a> del
     Instituto Andaluz de la Mujer en relación a los datos que facilita en el formulario. <br>
     El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
     por la empresa con firma y sello, pasando ésta a ser considerada empresa
     responsable en prevención del acoso sexual y por razón de sexo en el ámbito laboral. </p>
-      <button type="submit" id="button" class="btn btn-primary" style="margin-bottom: 20px;">Genera el Protocolo</button>
+      <button type="submit" href="index.html" id="button" class="btn btn-primary" style="margin-bottom: 20px;">Genera el Protocolo</button>
     </form>
     <div id="html-2-pdfwrapper" style="font-size: 14px; text-align: justify; text-justify: inter-word; display: none">
 
@@ -1175,7 +1173,7 @@ sexual-razon-sexo">
   </div>
 </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src='google-sheet.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -1190,13 +1188,13 @@ sexual-razon-sexo">
     var tiene_representacion = $('#representacion').val();
     console.log(tiene_representacion);
     if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
-      var url = "pdf/sindicales.pdf";
+      var url = "pdf/Protocolo.pdf";
       console.log(formula_juridica + " " + n_trabajadores);
       window.open(url, 'Download');
     }
 
     else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
-      var url = "pdf/sindicales.pdf";
+      var url = "pdf/Protocolo.pdf";
       window.open(url, 'Download');
     }
     else {
@@ -1230,10 +1228,10 @@ $(document).ready(function() {
   });
 
   margins = {
-    top: 90,
-    bottom: 90,
-    left: 80,
-    width: 430
+    top: 85,
+    bottom: 110,
+    left: 67,
+    width: 450,
   };
 
 generate = function() {
@@ -1328,14 +1326,14 @@ generate = function() {
   function footer(doc, pageNumber, totalPages){
 
       var str = pageNumber + " / " + totalPages
-
-      doc.setFontSize(10);
+      console.log("Hola");
+      doc.setFontSize(11);
       doc.text(str, 500, doc.internal.pageSize.height - 20);
       if (base63Img) {
-         doc.addImage(base63Img, 'JPEG', 55, 775, 160, 55);
+         doc.addImage(base63Img, 'JPEG', 52, 776, 159, 53);
       }
       if (base62Img) {
-         doc.addImage(base62Img, 'JPEG', 275, 770, 150, 68);
+         doc.addImage(base62Img, 'JPEG', 275, 777, 152, 66);
       }
   };
 
