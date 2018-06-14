@@ -60,7 +60,7 @@
       <div class="container">
   <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
     <h1 style="padding-bottom: 2%;"> Crea el protocolo de tu empresa </h1>
-    <form id="foo" action="index.html">
+    <form id="foo" action="index.html" autocomplete="on">
       <div class="form-group">
       <label for="example-text-input" style="font-size: 16px;">Nombre de la empresa <span style="color: red;">*</span></label>
           <input class="form-control" placeholder="Escriba el nombre de su compañía" type="text" value="" name="nombre_empresa" id="nombre_empresa" required>
@@ -1159,6 +1159,9 @@
     responsable en prevención del acoso sexual y por razón de sexo en el ámbito laboral. </p>
       <button type="submit" href="index.html" id="button" class="btn btn-primary" style="margin-bottom: 20px;">Genera el Protocolo</button>
     </form>
+
+      <div class="end-messages" style="display:none;"><div class="alert alert-success" role="alert"> Muchas gracias por generar tu Protocolo. </div> </div>
+
     <div id="html-2-pdfwrapper" style="font-size: 14px; text-align: justify; text-justify: inter-word; display: none">
 
  </div>
@@ -1185,21 +1188,37 @@
     console.log(n_trabajadores);
     var tiene_representacion = $('#representacion').val();
     console.log(tiene_representacion);
+
+
+    $(".end-messages").fadeIn();
+
+
     if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
       var url = "pdf/Protocolo.pdf";
       console.log(formula_juridica + " " + n_trabajadores);
+                //reset form
+           $('#foo')[0].reset();
       window.open(url, 'Download');
     }
 
     else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
       var url = "pdf/Protocolo.pdf";
+                //reset form
+           $('#foo')[0].reset();
       window.open(url, 'Download');
+
     }
     else {
       generate();
     }
+  
+  
+
     event.preventDefault();
   });
+
+
+
   </script>
   <script>
       $(document).ready(function(){
@@ -1272,8 +1291,12 @@ generate = function() {
         headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
       },
       margins);
+         
+          //reset form
+           $('#foo')[0].reset();
           pdf.save('Protocolo.pdf');
         });
+
   };
   function headerFooterFormatting(doc, totalPages)
   {
@@ -1324,7 +1347,7 @@ generate = function() {
   function footer(doc, pageNumber, totalPages){
 
       var str = pageNumber + " / " + totalPages
-      console.log("Hola");
+      //console.log("Hola");
       doc.setFontSize(11);
       doc.text(str, 500, doc.internal.pageSize.height - 20);
       if (base63Img) {
