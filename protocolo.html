@@ -1161,8 +1161,6 @@
     </form>
     <div id="html-2-pdfwrapper" style="font-size: 14px; text-align: justify; text-justify: inter-word; display: none">
 
-  <script src='dist/jspdf.min.js'></script>
-
  </div>
 </div>
 <div class="col-md-12" style="padding: 20px;">
@@ -1173,7 +1171,7 @@
   </div>
 </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src='google-sheet.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -1297,7 +1295,7 @@ generate = function() {
       doc.setFontStyle('normal');
 
       if (base64Img) {
-         doc.addImage(base64Img, 'JPEG', margins.left, 12, 270, 50);
+         doc.addImage(base64Img, 'JPEG', margins.left, 13, 280, 54);
       }
       doc.text("", margins.left + 50, 40 );
 
