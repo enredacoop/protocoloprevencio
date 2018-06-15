@@ -1373,14 +1373,14 @@ generate = function() {
         $(".end-messages").fadeIn();
 
         if (formula_juridica=="autonomo") {
-          var url = "pdf/Protocolo.pdf";
+          var url = "pdf/ModeloProtocoloAutonomos.pdf";
                     //reset form
                $('#foo')[0].reset();
           window.open(url, 'Download');
         }
 
         else if ((formula_juridica=="cooperativa")) {
-          var url = "pdf/Protocolo.pdf";
+          var url = "pdf/ModeloProtocoloCooperativas.pdf";
                     //reset form
                $('#foo')[0].reset();
           window.open(url, 'Download');
@@ -1401,7 +1401,7 @@ generate = function() {
         }
 
         else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="no")) {
-          var url = "pdf/Protocolo.pdf";
+          var url = "pdf/ModeloProtocoloSinRepresentacion.pdf";
                     //reset form
                $('#foo')[0].reset();
           window.open(url, 'Download');
