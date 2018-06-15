@@ -1157,7 +1157,11 @@
     El protocolo constará en el Instituto Andaluz de la Mujer sólo en caso de serle remitido
     por la empresa con firma y sello, pasando ésta a ser considerada empresa
     responsable en prevención del acoso sexual y por razón de sexo en el ámbito laboral. </p>
-      <button type="submit" href="index.html" id="button" class="btn btn-primary" style="margin-bottom: 20px;">Genera el Protocolo</button>
+    <p>
+      <button type="submit" id="button" class="btn btn-primary" style="margin-bottom: 20px;">Genera el Protocolo</button>
+
+      <button type="submit" id="button" class="btn btn-info" onclick="descargar()" style="margin-bottom: 20px;">Descarga tu PDF</button>
+    </p>
     </form>
 
       <div class="end-messages" style="display:none;"><div class="alert alert-success" role="alert"> Muchas gracias por generar tu Protocolo. </div> </div>
@@ -1206,19 +1210,15 @@
                 //reset form
            $('#foo')[0].reset();
       window.open(url, 'Download');
-
     }
     else {
       generate();
     }
-  
-  
+
+
 
     event.preventDefault();
   });
-
-
-
   </script>
   <script>
       $(document).ready(function(){
@@ -1291,7 +1291,7 @@ generate = function() {
         headerFooterFormatting(pdf, pdf.internal.getNumberOfPages());
       },
       margins);
-         
+
           //reset form
            $('#foo')[0].reset();
           pdf.save('Protocolo.pdf');
@@ -1359,6 +1359,55 @@ generate = function() {
   };
 
 });
+   </script>
+   <script>
+    function descargar() {
+        var formula_juridica = $('#formula').val();
+        console.log(formula_juridica);
+        var n_trabajadores = $('#trabajadores').val();
+        console.log(n_trabajadores);
+        var tiene_representacion = $('#representacion').val();
+        console.log(tiene_representacion);
+
+
+        $(".end-messages").fadeIn();
+
+        if (formula_juridica=="autonomo") {
+          var url = "pdf/Protocolo.pdf";
+                    //reset form
+               $('#foo')[0].reset();
+          window.open(url, 'Download');
+        }
+
+        else if ((formula_juridica=="cooperativa")) {
+          var url = "pdf/Protocolo.pdf";
+                    //reset form
+               $('#foo')[0].reset();
+          window.open(url, 'Download');
+        }
+
+        else if ((formula_juridica=="otro") && (n_trabajadores=="+250")) {
+          var url = "pdf/Protocolo.pdf";
+                    //reset form
+               $('#foo')[0].reset();
+          window.open(url, 'Download');
+        }
+
+        else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="si")) {
+          var url = "pdf/Protocolo.pdf";
+                    //reset form
+               $('#foo')[0].reset();
+          window.open(url, 'Download');
+        }
+
+        else if ((formula_juridica=="otro") && (n_trabajadores=="-250") && (tiene_representacion=="no")) {
+          var url = "pdf/Protocolo.pdf";
+                    //reset form
+               $('#foo')[0].reset();
+          window.open(url, 'Download');
+        }
+    }
+
    </script>
 
   </html>

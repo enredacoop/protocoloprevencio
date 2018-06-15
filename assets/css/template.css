@@ -2627,11 +2627,11 @@ a.text-success:hover {
 }
 
 .text-info {
-    color: #31708f
+    color: #D7D7D7
 }
 
 a.text-info:hover {
-    color: #245269
+    color: #D7D7D7
 }
 
 .text-warning {
@@ -2668,11 +2668,11 @@ a.bg-success:hover {
 }
 
 .bg-info {
-    background-color: #d9edf7
+    background-color: #D7D7D7
 }
 
 a.bg-info:hover {
-    background-color: #afd9ee
+    background-color: #D7D7D7
 }
 
 .bg-warning {
@@ -4576,9 +4576,9 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-    color: #fff;
-    background-color: #3498db;
-    border-color: #2980b9
+    color: black;
+    background-color: #D7D7D7;
+    border-color: #D7D7D7
 }
 
 .btn-info:hover,
@@ -4586,9 +4586,9 @@ fieldset[disabled] .btn-success.active {
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
-    color: #fff;
-    background-color: #2383c4;
-    border-color: #1e5d87
+    color: #black;
+    background-color: #D7D7D7;
+    border-color: #D7D7D7
 }
 
 .btn-info:active,
@@ -4612,8 +4612,8 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-    background-color: #3498db;
-    border-color: #2980b9
+    background-color: #D7D7D7;
+    border-color: #D7D7D7
 }
 
 .btn-info .badge {
@@ -4626,14 +4626,14 @@ fieldset[disabled] .btn-info.active {
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
-    color: #fff;
-    background-color: #4aa3df;
-    border-color: #2e8ece
+    color: black;
+    background-color: #D7D7D7;
+    border-color: #D7D7D7
 }
 
 .btn-info:active,
 .btn-info.active {
-    background-color: #2e8ece
+    background-color: #D7D7D7
 }
 
 .btn-warning {
